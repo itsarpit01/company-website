@@ -1,20 +1,82 @@
-# EliteTech Solutions Website
+# 🚀 EliteTech Solutions – Responsive Multi-Page Company Website
 
-## Project Overview
+A modern, fully responsive **software development company website** built using **Semantic HTML5** and **Vanilla CSS3**. This project demonstrates how to create a professional multi-page business website without using any CSS frameworks or JavaScript libraries.
 
-EliteTech Solutions is a static multi-page company website developed using HTML5. The website presents information about the company, its services, portfolio, pricing plans, blogs, careers, contact details, privacy policy, terms & conditions, and a custom 404 error page.
-
----
-
-## Business Scenario
-
-EliteTech Solutions is a software development company that helps businesses transform their ideas into digital solutions. The website is designed to showcase the company's services, projects, pricing plans, career opportunities, and contact information while providing a professional online presence.
+Designed with clean layouts, responsive components, and accessible HTML, the website showcases a fictional software company and its services, portfolio, pricing, blogs, careers, and contact information.
 
 ---
 
-## Folder Structure
+## 🌐 Project Overview
 
-```
+**EliteTech Solutions** is a fictional software development company that helps businesses transform their ideas into modern digital products.
+
+The website provides a complete online presence by presenting:
+
+- Company profile and mission
+- Software development services
+- Portfolio and case studies
+- Pricing plans
+- Technology blogs
+- Career opportunities
+- Contact information and office locations
+- Privacy Policy & Terms pages
+- Custom 404 error page
+
+The project is built using **only HTML5 and CSS3**, making it ideal for learning responsive web development fundamentals.
+
+---
+
+# ✨ Features
+
+### 🏗️ Website Structure
+
+- Fully responsive **11-page** website
+- Semantic HTML5 structure
+- Clean and reusable CSS architecture
+- Consistent layout across all pages
+- Mobile-first responsive design
+
+### 📱 Responsive Design
+
+- Desktop optimized layout
+- Tablet-friendly design
+- Mobile responsive navigation
+- Pure CSS hamburger menu
+- Flexible Grid & Flexbox layouts
+
+### 🎨 User Interface
+
+- Professional company landing page
+- Modern card-based layouts
+- Clean typography
+- Responsive pricing tables
+- Newsletter subscription forms
+- Contact and career application forms
+- Interactive FAQ using `<details>` and `<summary>`
+
+### 📍 Interactive Content
+
+- Embedded Google Maps
+- Company timeline
+- Project portfolio
+- Technology blogs
+- Career listings
+- Contact forms
+
+### ♿ Accessibility & SEO
+
+- Semantic HTML elements
+- Proper heading hierarchy
+- Accessible form labels
+- Image alt attributes
+- SEO-friendly meta tags
+- Responsive viewport settings
+
+---
+
+# 📂 Project Structure
+
+```text
 Assign-3/
 │
 ├── index.html
@@ -30,148 +92,130 @@ Assign-3/
 ├── 404.html
 │
 ├── assets/
+│   ├── css/
+│   │   └── style.css
+│   │
+│   ├── js/
+│   │   └── main.js
+│   │
 │   ├── images/
-│   ├── icons/
-│   ├── audio/
-│   └── logos/
+│   │   └── logos/
+│   │
+│   └── icons/
 │
 └── README.md
 ```
 
 ---
 
-## Website Pages
+# 📄 Website Pages
 
-- Home
-- About
-- Services
-- Portfolio
-- Pricing
-- Blog
-- Careers
-- Contact
-- Privacy Policy
-- Terms & Conditions
-- 404 Error Page
-
----
-
-## Features
-
-- Multi-page website
-- Semantic HTML5 structure
-- Responsive viewport settings
-- Company information
-- Service listings
-- Portfolio with case studies
-- Pricing plans
-- Blog section
-- Career opportunities
-- Job application form
-- Contact form
-- Google Maps integration
-- FAQ section
-- Privacy Policy
-- Terms & Conditions
-- Custom 404 page
-- Internal page navigation
-- SEO meta tags
+| Page | Description |
+|------|-------------|
+| 🏠 **Home** | Company introduction, featured services, projects, blogs, and newsletter |
+| 👨‍💼 **About** | Company story, mission, vision, timeline, leadership team, certifications, awards, and company video |
+| 💻 **Services** | Development services, workflow, pricing preview, and FAQ section |
+| 📁 **Portfolio** | Project showcase, case studies, technologies, and client logos |
+| 💰 **Pricing** | Starter, Professional, and Enterprise plans with comparison table |
+| 📰 **Blog** | Technology articles, categories, popular posts, and newsletter |
+| 💼 **Careers** | Job openings, employee benefits, and application form |
+| 📞 **Contact** | Contact information, office locations, Google Maps, and enquiry form |
+| 🔒 **Privacy Policy** | Privacy practices and user data guidelines |
+| 📃 **Terms & Conditions** | Website usage rules and service terms |
+| ❌ **404 Page** | Custom error page with navigation back to the homepage |
 
 ---
 
-## HTML Elements Used
+# 🎯 Key Features
 
-- html
-- head
-- body
-- header
-- nav
-- main
-- section
-- article
-- figure
-- figcaption
-- picture
-- footer
-- h1 to h3
-- p
-- ul
-- ol
-- li
-- table
-- tr
-- th
-- td
-- form
-- input
-- textarea
-- select
-- option
-- label
-- button
-- details
-- summary
-- iframe
-- img
-- audio
-- video
-- source
-- a
-- strong
-- hr
+- ✅ Semantic HTML5 Layout
+- ✅ Fully Responsive Design
+- ✅ CSS Grid & Flexbox Layouts
+- ✅ Pure CSS Mobile Navigation
+- ✅ Reusable Components
+- ✅ Professional Card Layouts
+- ✅ Responsive Pricing Table
+- ✅ Interactive FAQ Section
+- ✅ Google Maps Integration
+- ✅ Contact Forms
+- ✅ Career Application Form
+- ✅ Newsletter Subscription
+- ✅ SEO-Friendly Structure
+- ✅ Accessible HTML Markup
 
 ---
 
-## Accessibility
+# 🛠️ Technologies Used
 
-- Semantic HTML5 tags
-- Meaningful heading hierarchy
-- Alt text for images
-- Labels for form fields
-- Accessible navigation links
-- Embedded Google Maps with title
-- Details and Summary elements for FAQs
+### Frontend
 
----
+- HTML5
+- CSS3
 
-## SEO
+### CSS Features
 
-Each page includes:
+- CSS Variables (`:root`)
+- Flexbox
+- CSS Grid
+- Media Queries
+- Transitions
+- Hover Effects
+- Responsive Design
 
-- Title
-- Meta Description
-- Meta Keywords
-- Meta Author
-- Viewport
-- Robots Meta Tag
-- Canonical URL
-- Open Graph Tags
-- Favicon
+### HTML Features
 
----
-
-## Assumptions
-
-- This project is developed using only HTML5.
-- No CSS or JavaScript frameworks are used.
-- Images, icons, audio, and other media are stored inside the assets folder.
-- Forms are created for demonstration purposes and do not submit data to a server.
+- Semantic Elements
+- Tables
+- Forms
+- Lists
+- Google Maps Embed
+- Images
+- Buttons
+- Links
+- Details & Summary
+- Figures
+- Sections
+- Articles
 
 ---
 
-## Future Improvements
+# 📱 Responsive Breakpoints
 
-- Add CSS for responsive design.
-- Add JavaScript for interactive features.
-- Integrate backend for contact and job application forms.
-- Connect to a database.
-- Add authentication and admin panel.
-- Improve accessibility with ARIA attributes.
-- Optimize images for faster loading.
-- Deploy the website with a custom domain.
+| Screen Size | Layout |
+|-------------|--------|
+| **Desktop (992px+)** | Multi-column layout with full navigation |
+| **Tablet (≤992px)** | Responsive grids and collapsible navigation |
+| **Mobile (≤600px)** | Single-column layout with touch-friendly interface |
 
 ---
 
-## Author
+# 🎓 Learning Outcomes
+
+This project helped practice:
+
+- Semantic HTML5
+- Responsive Web Design
+- CSS Grid
+- Flexbox
+- Media Queries
+- Form Design
+- Website Layout Planning
+- Accessibility Basics
+- SEO Fundamentals
+- Multi-page Website Development
+
+---
+
+# 👨‍💻 Author
 
 **Arpit Thakur**
+
+Computer Science Graduate
+
+---
+
+# 📄 License
+
+This project is created for **learning and educational purposes**.
+
+Feel free to explore, modify, and use it for practice.
