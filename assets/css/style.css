@@ -1,0 +1,796 @@
+/* ==========================================================================
+   EliteTech Solutions - Master Design System & Responsive Stylesheet
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. CSS Variables & Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Color Palette */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --secondary: #4f46e5;
+  --accent: #06b6d4;
+  --accent-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  --accent-gradient-hover: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%);
+  
+  /* Neutral Colors */
+  --bg-main: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-dark: #0f172a;
+  --bg-dark-surface: #1e293b;
+  
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --text-white: #ffffff;
+  
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e1;
+  
+  /* Social Media Brand Colors */
+  --brand-linkedin: #0a66c2;
+  --brand-github: #24292f;
+  --brand-facebook: #1877f2;
+  --brand-instagram: #e4405f;
+  --brand-youtube: #ff0000;
+  --brand-twitter: #1da1f2;
+
+  /* Typography */
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 10px 30px -5px rgba(37, 99, 235, 0.25);
+
+  /* Transitions & Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base Setup
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Remove default underline decoration on headings if any HTML had <u> */
+u {
+  text-decoration: none !important;
+  border-bottom: 3px solid var(--primary);
+  padding-bottom: 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-main);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.85rem; margin-bottom: 1rem; }
+h3 { font-size: 1.35rem; margin-bottom: 0.5rem; }
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+}
+
+p strong {
+  color: var(--text-main);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border-color);
+  margin: 2.5rem 0;
+}
+
+ul, ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. Header & Global Navigation
+   -------------------------------------------------------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.85rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-shadow: var(--shadow-md);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-brand img {
+  height: 42px;
+  width: auto;
+  border-radius: 0;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
+.header-brand img:hover {
+  transform: scale(1.05);
+}
+
+.header-brand h1 {
+  font-size: 1.35rem;
+  color: var(--text-white);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.header-brand h1 u {
+  border-bottom: 2px solid var(--accent);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+/* Hide plain text vertical bar separators if present */
+nav span.nav-separator,
+header nav {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+nav a {
+  color: #cbd5e1;
+  font-weight: 500;
+  font-size: 0.93rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  display: inline-block;
+}
+
+nav a:hover {
+  color: var(--text-white);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+nav a.active {
+  color: var(--text-white);
+  background: var(--primary);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   4. Main Content & Layout Containers
+   -------------------------------------------------------------------------- */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+section {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+section:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* Section Header Styling */
+section > h2 {
+  position: relative;
+  display: inline-block;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+}
+
+section > h2 u {
+  border-bottom: 3px solid var(--primary);
+}
+
+/* Hero Sections */
+#home, #hero, #error-page {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: var(--text-white);
+  text-align: center;
+  padding: 4rem 2rem;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+#home h2, #hero h2, #error-page h2 {
+  color: var(--text-white);
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+#home p, #hero p, #error-page p {
+  color: #94a3b8;
+  font-size: 1.15rem;
+  max-width: 700px;
+  margin: 0 auto 1.5rem auto;
+}
+
+#home p strong, #hero p strong {
+  color: #38bdf8;
+  font-size: 1.25rem;
+}
+
+/* Common Call-to-Action Buttons */
+a.btn, .btn,
+#home p a, #hero p a, #contact a[href="contact.html"], section#hero a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--accent-gradient);
+  color: var(--text-white) !important;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-glow);
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  margin: 0.35rem;
+}
+
+a.btn:hover, .btn:hover,
+#home p a:hover, #hero p a:hover, #contact a[href="contact.html"]:hover, section#hero a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px -5px rgba(37, 99, 235, 0.4);
+  background: var(--accent-gradient-hover);
+}
+
+/* --------------------------------------------------------------------------
+   5. Card Grids (Services, Portfolio, Pricing, Team, Careers, Blogs)
+   -------------------------------------------------------------------------- */
+#services ul, #projects ol, #blogs, #leadership-teams, #pricing, .grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
+  list-style: none;
+  margin-left: 0;
+}
+
+/* Individual Card Styling */
+article, section#pricing article, #leadership-teams article {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+article:hover, section#pricing article:hover, #leadership-teams article:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: #cbd5e1;
+}
+
+article h3 {
+  color: var(--text-main);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+article p {
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+article img {
+  border-radius: var(--radius-md);
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  margin-bottom: 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   6. Statistics & Highlights Section
+   -------------------------------------------------------------------------- */
+#statics ul, #statistics ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  margin-left: 0;
+  text-align: center;
+}
+
+#statics li, #statistics li {
+  background: linear-gradient(145deg, #f8fafc 0%, #eff6ff 100%);
+  border: 1px solid #dbeafe;
+  padding: 1.75rem;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+#statics li:hover, #statistics li:hover {
+  transform: scale(1.03);
+  border-color: var(--primary);
+}
+
+#statics p strong, #statistics p strong {
+  display: block;
+  font-size: 2.5rem;
+  color: var(--primary);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. Testimonials & Quote Cards
+   -------------------------------------------------------------------------- */
+#clients p, #testimonials blockquote {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #334155;
+  background: #f1f5f9;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid var(--primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-bottom: 0.5rem;
+}
+
+#clients i, #testimonials cite {
+  display: block;
+  font-weight: 600;
+  color: var(--primary);
+  font-style: normal;
+  margin-bottom: 1.5rem;
+  text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   8. Pricing Tables & Comparison Matrix
+   -------------------------------------------------------------------------- */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+th, td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+}
+
+th {
+  background: var(--bg-dark);
+  color: var(--text-white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+tr:hover td {
+  background-color: #eff6ff;
+}
+
+td {
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Horizontal scroll container for tables on small screens */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Forms & Inputs (Contact, Newsletter, Careers, Search)
+   -------------------------------------------------------------------------- */
+form {
+  max-width: 650px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+label {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+  display: inline-block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background-color: var(--bg-surface);
+  transition: var(--transition);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+input[type="submit"],
+button[type="submit"] {
+  background: var(--accent-gradient);
+  color: var(--text-white);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: var(--shadow-glow);
+  transition: var(--transition);
+  align-self: flex-start;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+  background: var(--accent-gradient-hover);
+  transform: translateY(-2px);
+}
+
+input[type="reset"] {
+  background: transparent;
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: var(--transition);
+  align-self: flex-start;
+}
+
+input[type="reset"]:hover {
+  background: var(--border-color);
+  color: var(--text-main);
+}
+
+/* Inline Newsletter Form */
+#newsletter form {
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+#newsletter input[type="email"],
+#newsletter input[type="text"] {
+  flex: 1;
+  min-width: 240px;
+}
+
+/* --------------------------------------------------------------------------
+   10. Accordion / FAQ Section (<details> & <summary>)
+   -------------------------------------------------------------------------- */
+details {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.85rem;
+  transition: var(--transition);
+}
+
+details[open] {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+summary {
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  font-size: 1.05rem;
+  user-select: none;
+  outline: none;
+}
+
+details p {
+  margin-top: 0.85rem;
+  margin-bottom: 0;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   11. Footer & Connect Section with SVG Icons
+   -------------------------------------------------------------------------- */
+footer {
+  background: var(--bg-dark);
+  color: #94a3b8;
+  padding: 3.5rem 5% 2rem 5%;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+footer hr {
+  display: none;
+}
+
+footer-content,
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+footer .footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2.5rem;
+}
+
+footer h3 {
+  color: var(--text-white);
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+}
+
+footer nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+footer nav a {
+  color: #94a3b8;
+  padding: 0;
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+footer nav a:hover {
+  color: var(--text-white);
+  background: transparent;
+  transform: translateX(4px);
+}
+
+/* Connect / Social Section Styling (Explicit User Request!) */
+.social-connect-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: #e2e8f0 !important;
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.social-link svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.social-link:hover {
+  transform: translateY(-3px);
+  color: var(--text-white) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Specific Social Brand Colors on Hover */
+.social-link.linkedin:hover { background: var(--brand-linkedin); border-color: var(--brand-linkedin); }
+.social-link.github:hover { background: var(--brand-github); border-color: var(--brand-github); }
+.social-link.facebook:hover { background: var(--brand-facebook); border-color: var(--brand-facebook); }
+.social-link.instagram:hover { background: var(--brand-instagram); border-color: var(--brand-instagram); }
+.social-link.youtube:hover { background: var(--brand-youtube); border-color: var(--brand-youtube); }
+.social-link.twitter:hover { background: var(--brand-twitter); border-color: var(--brand-twitter); }
+
+footer p:last-child {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.75rem;
+  margin-top: 1.5rem;
+  color: #64748b;
+  font-size: 0.88rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. Responsive Breakpoints & Mobile Optimization
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  nav {
+    justify-content: center;
+  }
+  
+  #home h2, #hero h2, #error-page h2 {
+    font-size: 2.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 1.5rem 1rem;
+  }
+  
+  section {
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+  }
+
+  header {
+    padding: 1rem;
+  }
+
+  .header-brand h1 {
+    font-size: 1.15rem;
+  }
+
+  nav a {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.65rem;
+  }
+
+  #home, #hero, #error-page {
+    padding: 2.5rem 1.25rem;
+  }
+
+  #home h2, #hero h2, #error-page h2 {
+    font-size: 1.75rem;
+  }
+
+  .social-connect-list {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    gap: 0.2rem;
+  }
+  
+  nav a {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.5rem;
+  }
+
+  a.btn, .btn,
+  #home p a, #hero p a, #contact a[href="contact.html"] {
+    width: 100%;
+    margin: 0.35rem 0;
+  }
+
+  #newsletter form {
+    flex-direction: column;
+  }
+
+  #newsletter input[type="email"],
+  #newsletter input[type="text"] {
+    width: 100%;
+  }
+}
