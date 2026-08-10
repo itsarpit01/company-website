@@ -2,8 +2,6 @@
    EliteTech Solutions - Master Design System & Responsive Stylesheet
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
 /* --------------------------------------------------------------------------
    1. CSS Variables & Design Tokens
    -------------------------------------------------------------------------- */
@@ -40,9 +38,9 @@
   --brand-youtube: #ff0000;
   --brand-twitter: #1da1f2;
 
-  /* Typography */
-  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  /* Typography - Standard System Fonts */
+  --font-heading: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
 
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
