@@ -9,7 +9,6 @@
   --accent-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
   --accent-gradient-hover: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%);
   
-  /* Neutral Colors */
   --bg-main: #f8fafc;
   --bg-surface: #ffffff;
   --bg-card: #ffffff;
@@ -23,8 +22,7 @@
   
   --border-color: #e2e8f0;
   --border-hover: #cbd5e1;
-  
-  /* Social Media Brand Colors */
+
   --brand-linkedin: #0a66c2;
   --brand-github: #24292f;
   --brand-facebook: #1877f2;
@@ -32,7 +30,7 @@
   --brand-youtube: #ff0000;
   --brand-twitter: #1da1f2;
 
-  /* Typography - Standard System Fonts */
+
   --font-heading: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
   --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
 
@@ -42,7 +40,7 @@
   --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
   --shadow-glow: 0 10px 30px -5px rgba(37, 99, 235, 0.25);
 
-  /* Transitions & Border Radius */
+
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
@@ -50,9 +48,6 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* --------------------------------------------------------------------------
-   2. Reset & Base Setup
-   -------------------------------------------------------------------------- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -75,7 +70,6 @@ body {
   flex-direction: column;
 }
 
-/* Remove default underline decoration on headings if any HTML had <u> */
 u {
   text-decoration: none !important;
   border-bottom: 3px solid var(--primary);
@@ -93,9 +87,12 @@ h1 { font-size: 2.25rem; }
 h2 { font-size: 1.85rem; margin-bottom: 1rem; }
 h3 { font-size: 1.35rem; margin-bottom: 0.5rem; }
 
+p, li {
+  color: var(--text-main);
+}
+
 p {
   margin-bottom: 1rem;
-  color: var(--text-muted);
 }
 
 p strong {
@@ -130,9 +127,6 @@ ul, ol {
   margin-bottom: 1.5rem;
 }
 
-/* --------------------------------------------------------------------------
-   3. Header & Global Navigation
-   -------------------------------------------------------------------------- */
 header {
   position: sticky;
   top: 0;
@@ -185,7 +179,6 @@ nav {
   flex-wrap: wrap;
 }
 
-/* Hide plain text vertical bar separators if present */
 nav span.nav-separator,
 header nav {
   color: rgba(255, 255, 255, 0.2);
@@ -212,35 +205,37 @@ nav a.active {
   font-weight: 600;
 }
 
-/* --------------------------------------------------------------------------
-   4. Main Content & Layout Containers
-   -------------------------------------------------------------------------- */
 main {
   flex: 1;
-  width: 100%;
+  width: 92%;
   max-width: 1240px;
-  margin: 0 auto;
-  padding: 2.5rem 1.5rem;
+  margin: 2rem auto;
+  padding: 3rem 2.5rem;
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
 }
 
 section {
-  background: var(--bg-surface);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  margin-bottom: 2.5rem;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-color);
-  transition: var(--transition);
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  margin-bottom: 3.5rem;
+  box-shadow: none;
+  border: none;
 }
 
-section:hover {
-  box-shadow: var(--shadow-lg);
+section:last-of-type {
+  margin-bottom: 1rem;
 }
 
-/* Section Header Styling */
+
 section > h2 {
   position: relative;
-  display: inline-block;
+  display: block;
+  grid-column: 1 / -1;
+  width: 100%;
   color: var(--text-main);
   margin-bottom: 1.5rem;
 }
@@ -249,13 +244,15 @@ section > h2 u {
   border-bottom: 3px solid var(--primary);
 }
 
-/* Hero Sections */
 #home, #hero, #error-page {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   color: var(--text-white);
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 3.5rem 2rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 3.5rem;
   border: none;
+  box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
 }
@@ -280,7 +277,6 @@ section > h2 u {
   font-size: 1.25rem;
 }
 
-/* Common Call-to-Action Buttons */
 a.btn, .btn,
 #home p a, #hero p a, #contact a[href="contact.html"], section#hero a {
   display: inline-flex;
@@ -306,18 +302,20 @@ a.btn:hover, .btn:hover,
   background: var(--accent-gradient-hover);
 }
 
-/* --------------------------------------------------------------------------
-   5. Card Grids (Services, Portfolio, Pricing, Team, Careers, Blogs)
-   -------------------------------------------------------------------------- */
 #services ul, #projects ol, #blogs, #leadership-teams, #pricing, .grid-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.75rem;
-  list-style: none;
-  margin-left: 0;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.75rem !important;
+  list-style: none !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  width: 100% !important;
 }
 
-/* Individual Card Styling */
+#services {
+  display: block;
+}
+
 article, section#pricing article, #leadership-teams article {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -335,6 +333,24 @@ article:hover, section#pricing article:hover, #leadership-teams article:hover {
   border-color: #cbd5e1;
 }
 
+#services, #projects, #blogs {
+  transition: none;
+}
+
+#services:hover, #projects:hover, #blogs:hover {
+  box-shadow: none;
+}
+
+#services article, #projects article, #blogs article {
+  transition: none;
+}
+
+#services article:hover, #projects article:hover, #blogs article:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border-color);
+}
+
 article h3 {
   color: var(--text-main);
   font-size: 1.25rem;
@@ -347,7 +363,7 @@ article p {
   flex: 1;
 }
 
-article img {
+article > img {
   border-radius: var(--radius-md);
   width: 100%;
   height: 220px;
@@ -355,9 +371,181 @@ article img {
   margin-bottom: 1.25rem;
 }
 
-/* --------------------------------------------------------------------------
-   6. Statistics & Highlights Section
-   -------------------------------------------------------------------------- */
+/* Service Card Icon Styling (Small 52px badges) */
+#services article figure {
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+#services article figure img {
+  width: 52px !important;
+  height: 52px !important;
+  object-fit: contain !important;
+  border-radius: 12px;
+  background: var(--primary-light);
+  padding: 10px;
+  border: 1px solid #dbeafe;
+}
+
+#services article figcaption {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Portfolio Project Card Image & Title Styling */
+#projects article {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+#offices {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 1.75rem !important;
+}
+
+#offices hr, section hr, #projects hr, #case-studies hr, #pricing hr {
+  display: none !important;
+}
+
+#offices section, #offices article {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 1.75rem !important;
+  margin-bottom: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+#offices iframe {
+  width: 100% !important;
+  height: 220px !important;
+  border-radius: var(--radius-sm) !important;
+  margin-top: 1rem !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+#case-studies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+
+#case-studies article {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  margin-bottom: 0;
+}
+
+#projects article figure {
+  margin: 0 0 1rem 0;
+  width: 100%;
+}
+
+#projects article figure img {
+  width: 100% !important;
+  max-width: 260px !important;
+  height: 140px !important;
+  object-fit: contain !important;
+  border-radius: var(--radius-sm) !important;
+  border: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+#projects figure figcaption {
+  display: none !important; /* Prevents duplicate project name display */
+}
+
+/* Our Clients Logo Section Flexbox Alignment */
+#client-logos, #clients, .client-grid {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 1.5rem !important;
+}
+
+#client-logos figure, #clients figure {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 1.25rem 1.75rem !important;
+  margin: 0 !important;
+  transition: var(--transition) !important;
+  min-width: 150px !important;
+  max-width: 220px !important;
+  flex: 1 1 180px !important;
+}
+
+#client-logos figure img, #clients figure img {
+  width: auto !important;
+  max-width: 130px !important;
+  height: 48px !important;
+  object-fit: contain !important;
+  margin-bottom: 0.5rem !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+#client-logos figure figcaption, #clients figure figcaption {
+  display: block !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: var(--text-muted) !important;
+  text-align: center !important;
+  margin-top: 0.25rem !important;
+}
+
+/* Development Process & Standalone Diagram Figure Styling (Normal clean size) */
+#development-process figure, figure {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+#development-process figure img, section > figure img {
+  width: 100% !important;
+  max-width: 300px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+figcaption {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+
 #statics ul, #statistics ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -389,17 +577,20 @@ article img {
   margin-bottom: 0.25rem;
 }
 
-/* --------------------------------------------------------------------------
-   7. Testimonials & Quote Cards
-   -------------------------------------------------------------------------- */
-#clients p, #testimonials blockquote {
+
+#testimonials hr, #client-testimonials hr {
+  display: none !important;
+}
+
+#clients p, #testimonials blockquote, blockquote {
   font-style: italic;
   font-size: 1.05rem;
   color: #334155;
   background: #f1f5f9;
   padding: 1.25rem 1.5rem;
-  border-left: 4px solid var(--primary);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  border-left: none !important;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
   margin-bottom: 0.5rem;
 }
 
@@ -412,9 +603,6 @@ article img {
   text-align: right;
 }
 
-/* --------------------------------------------------------------------------
-   8. Pricing Tables & Comparison Matrix
-   -------------------------------------------------------------------------- */
 table {
   width: 100%;
   border-collapse: separate;
@@ -454,7 +642,6 @@ td {
   font-weight: 500;
 }
 
-/* Horizontal scroll container for tables on small screens */
 .table-responsive {
   width: 100%;
   overflow-x: auto;
@@ -462,23 +649,119 @@ td {
   margin-bottom: 1.5rem;
 }
 
-/* --------------------------------------------------------------------------
-   9. Forms & Inputs (Contact, Newsletter, Careers, Search)
-   -------------------------------------------------------------------------- */
+/* Center Newsletter, Job Application & Contact Forms */
+#newsletter, section#newsletter, #job-application, section#job-application {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+#newsletter h2, #newsletter p, #job-application h2, #job-application p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#newsletter form, #job-application form {
+  margin: 1.5rem auto !important;
+  text-align: left !important;
+}
+
+/* Form Controls & Card Box Styling */
+form br {
+  display: none !important;
+}
+
 form {
   max-width: 650px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  margin: 1.5rem auto;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 0 !important;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+form > label,
+form > input[type="text"],
+form > input[type="email"],
+form > input[type="tel"],
+form > input[type="url"],
+form > input[type="file"],
+form > input[type="number"],
+form > select,
+form > textarea {
+  flex: 0 0 100% !important;
+  width: 100% !important;
+}
+
+input[type="submit"],
+button[type="submit"] {
+  background: #1b365d !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 2.25rem;
+  border: none !important;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  box-shadow: none !important;
+  transition: var(--transition);
+  margin-top: 1rem !important;
+  margin-right: 0.75rem !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+  background: #0f2442 !important;
+  transform: translateY(-1px);
+}
+
+input[type="reset"],
+button[type="reset"] {
+  background: #ffffff !important;
+  color: #334155 !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.75rem;
+  border: 1.5px solid #e2e8f0 !important;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 1rem !important;
+  flex: 0 0 auto !important;
+  width: auto !important;
+}
+
+.form-grid, form.grid-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem 1.5rem;
+  width: 100%;
 }
 
 label {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-main);
   font-size: 0.95rem;
+  margin-top: 0.85rem;
   margin-bottom: 0.25rem;
-  display: inline-block;
+  display: block;
+  width: 100%;
+}
+
+label span.required, label.required::after {
+  content: " *";
+  color: #ef4444;
 }
 
 input[type="text"],
@@ -486,16 +769,18 @@ input[type="email"],
 input[type="tel"],
 input[type="url"],
 input[type="file"],
+input[type="number"],
 select,
 textarea {
   width: 100%;
   padding: 0.85rem 1.15rem;
-  border: 1.5px solid var(--border-color);
+  border: 1.5px solid #e2e8f0;
   border-radius: var(--radius-sm);
   font-family: var(--font-body);
   font-size: 0.95rem;
   color: var(--text-main);
-  background-color: var(--bg-surface);
+  background-color: #fdfbf7; /* Warm soft background matching user screenshot */
+  margin-bottom: 0.75rem;
   transition: var(--transition);
 }
 
@@ -506,65 +791,21 @@ input[type="url"]:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+  border-color: #1b365d;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(27, 54, 93, 0.12);
 }
 
-input[type="submit"],
-button[type="submit"] {
-  background: var(--accent-gradient);
-  color: var(--text-white);
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.9rem 2rem;
-  border: none;
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  box-shadow: var(--shadow-glow);
-  transition: var(--transition);
-  align-self: flex-start;
+textarea {
+  resize: vertical;
+  min-height: 130px;
 }
 
-input[type="submit"]:hover,
-button[type="submit"]:hover {
-  background: var(--accent-gradient-hover);
-  transform: translateY(-2px);
-}
 
-input[type="reset"] {
-  background: transparent;
-  color: var(--text-muted);
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  transition: var(--transition);
-  align-self: flex-start;
-}
 
-input[type="reset"]:hover {
-  background: var(--border-color);
-  color: var(--text-main);
-}
 
-/* Inline Newsletter Form */
-#newsletter form {
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
 
-#newsletter input[type="email"],
-#newsletter input[type="text"] {
-  flex: 1;
-  min-width: 240px;
-}
 
-/* --------------------------------------------------------------------------
-   10. Accordion / FAQ Section (<details> & <summary>)
-   -------------------------------------------------------------------------- */
 details {
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
@@ -594,13 +835,11 @@ details p {
   color: var(--text-muted);
 }
 
-/* --------------------------------------------------------------------------
-   11. Footer & Connect Section with SVG Icons
-   -------------------------------------------------------------------------- */
+
 footer {
   background: var(--bg-dark);
   color: #94a3b8;
-  padding: 3.5rem 5% 2rem 5%;
+  padding: 2rem 5% 1rem 5%;
   margin-top: auto;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -613,19 +852,20 @@ footer-content,
 footer {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 footer .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
 }
 
 footer h3 {
   color: var(--text-white);
-  font-size: 1.1rem;
-  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+  margin-bottom: 0.85rem;
   font-weight: 700;
 }
 
@@ -633,14 +873,14 @@ footer nav {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.6rem;
+  gap: 0.45rem;
 }
 
 footer nav a {
   color: #94a3b8;
   padding: 0;
   font-weight: 400;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 footer nav a:hover {
@@ -649,11 +889,12 @@ footer nav a:hover {
   transform: translateX(4px);
 }
 
-/* Connect / Social Section Styling (Explicit User Request!) */
+
 .social-connect-list {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.45rem;
   list-style: none;
   margin-left: 0;
   padding: 0;
@@ -662,12 +903,12 @@ footer nav a:hover {
 .social-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.45rem;
   background: rgba(255, 255, 255, 0.06);
   color: #e2e8f0 !important;
-  padding: 0.6rem 1.1rem;
+  padding: 0.4rem 0.8rem;
   border-radius: var(--radius-full);
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 500;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: var(--transition);
@@ -675,20 +916,20 @@ footer nav a:hover {
 }
 
 .social-link svg {
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   fill: currentColor;
   transition: var(--transition);
   flex-shrink: 0;
 }
 
 .social-link:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   color: var(--text-white) !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* Specific Social Brand Colors on Hover */
+
 .social-link.linkedin:hover { background: var(--brand-linkedin); border-color: var(--brand-linkedin); }
 .social-link.github:hover { background: var(--brand-github); border-color: var(--brand-github); }
 .social-link.facebook:hover { background: var(--brand-facebook); border-color: var(--brand-facebook); }
@@ -699,15 +940,14 @@ footer nav a:hover {
 footer p:last-child {
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 1.75rem;
-  margin-top: 1.5rem;
+  padding-top: 1rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
   color: #64748b;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
 }
 
-/* --------------------------------------------------------------------------
-   12. Responsive Breakpoints & Mobile Optimization
-   -------------------------------------------------------------------------- */
+
 @media (max-width: 992px) {
   header {
     flex-direction: column;
@@ -725,27 +965,80 @@ footer p:last-child {
   }
 }
 
+/* Pure CSS Hamburger Checkbox Hack */
+.nav-toggle {
+  display: none !important;
+}
+
+.nav-toggle-label {
+  display: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1.5rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.nav-toggle-label:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
 @media (max-width: 768px) {
   main {
-    padding: 1.5rem 1rem;
-  }
-  
-  section {
-    padding: 1.5rem;
-    border-radius: var(--radius-md);
+    padding: 1.75rem 1.25rem;
+    width: 95%;
+    margin: 1rem auto;
   }
 
   header {
-    padding: 1rem;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0.85rem 1.25rem !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+  }
+
+  .nav-toggle-label {
+    display: flex !important;
+  }
+
+  header nav {
+    display: none !important;
+    width: 100% !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    background: #0f172a !important;
+    padding: 0.75rem !important;
+    margin-top: 0.75rem !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .nav-toggle:checked ~ nav {
+    display: flex !important;
+  }
+
+  header nav a {
+    padding: 0.75rem 1rem !important;
+    text-align: left !important;
+    width: 100% !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
   }
 
   .header-brand h1 {
     font-size: 1.15rem;
-  }
-
-  nav a {
-    font-size: 0.85rem;
-    padding: 0.4rem 0.65rem;
   }
 
   #home, #hero, #error-page {
