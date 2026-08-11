@@ -1,54 +1,33 @@
+/* ==========================================================================
+   EliteTech Solutions - Comprehensive CSS with Explicit Flexbox & Grid Systems
+   ========================================================================== */
 
 :root {
   /* Color Palette */
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
   --primary-light: #eff6ff;
-  --secondary: #4f46e5;
-  --accent: #06b6d4;
-  --accent-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-  --accent-gradient-hover: linear-gradient(135deg, #1d4ed8 0%, #6d28d9 100%);
-  
   --bg-main: #f8fafc;
   --bg-surface: #ffffff;
   --bg-card: #ffffff;
   --bg-dark: #0f172a;
-  --bg-dark-surface: #1e293b;
-  
   --text-main: #0f172a;
   --text-muted: #64748b;
-  --text-light: #94a3b8;
   --text-white: #ffffff;
-  
   --border-color: #e2e8f0;
-  --border-hover: #cbd5e1;
 
-  --brand-linkedin: #0a66c2;
-  --brand-github: #24292f;
-  --brand-facebook: #1877f2;
-  --brand-instagram: #e4405f;
-  --brand-youtube: #ff0000;
-  --brand-twitter: #1da1f2;
-
-
-  --font-heading: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-  --font-body: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-  --shadow-glow: 0 10px 30px -5px rgba(37, 99, 235, 0.25);
-
-
+  /* Basic Tokens */
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
-  --radius-full: 9999px;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
 }
 
-*, *::before, *::after {
+/* Reset Base Styles */
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -60,24 +39,17 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: Arial, sans-serif;
   background-color: var(--bg-main);
   color: var(--text-main);
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-u {
-  text-decoration: none !important;
-  border-bottom: 3px solid var(--primary);
-  padding-bottom: 2px;
-}
-
+/* Typography & Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
   color: var(--text-main);
   font-weight: 700;
   line-height: 1.25;
@@ -89,14 +61,13 @@ h3 { font-size: 1.35rem; margin-bottom: 0.5rem; }
 
 p, li {
   color: var(--text-main);
-}
-
-p {
   margin-bottom: 1rem;
 }
 
-p strong {
-  color: var(--text-main);
+u {
+  text-decoration: none;
+  border-bottom: 3px solid var(--primary);
+  padding-bottom: 2px;
 }
 
 a {
@@ -127,13 +98,14 @@ ul, ol {
   margin-bottom: 1.5rem;
 }
 
+/* --------------------------------------------------------------------------
+   Header & Navigation Bar (Flexbox)
+   -------------------------------------------------------------------------- */
 header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(15, 23, 42, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.95);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0.85rem 5%;
   display: flex;
@@ -152,7 +124,6 @@ header {
 .header-brand img {
   height: 42px;
   width: auto;
-  border-radius: 0;
   object-fit: contain;
   transition: var(--transition);
 }
@@ -165,11 +136,10 @@ header {
   font-size: 1.35rem;
   color: var(--text-white);
   font-weight: 800;
-  letter-spacing: -0.02em;
 }
 
 .header-brand h1 u {
-  border-bottom: 2px solid var(--accent);
+  border-bottom: 2px solid #06b6d4;
 }
 
 nav {
@@ -179,11 +149,6 @@ nav {
   flex-wrap: wrap;
 }
 
-nav span.nav-separator,
-header nav {
-  color: rgba(255, 255, 255, 0.2);
-}
-
 nav a {
   color: #cbd5e1;
   font-weight: 500;
@@ -191,12 +156,11 @@ nav a {
   padding: 0.5rem 0.85rem;
   border-radius: var(--radius-sm);
   transition: var(--transition);
-  display: inline-block;
 }
 
 nav a:hover {
   color: var(--text-white);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 nav a.active {
@@ -205,6 +169,9 @@ nav a.active {
   font-weight: 600;
 }
 
+/* --------------------------------------------------------------------------
+   Main Container Box & Section Headings (Full Width New Line Layout)
+   -------------------------------------------------------------------------- */
 main {
   flex: 1;
   width: 92%;
@@ -217,51 +184,104 @@ main {
   box-shadow: var(--shadow-md);
 }
 
-section {
-  background: transparent;
-  border-radius: 0;
-  padding: 0;
-  margin-bottom: 3.5rem;
-  box-shadow: none;
-  border: none;
+main > section, section {
+  width: 100% !important;
+  display: block !important;
+  clear: both !important;
+  margin-bottom: 3.5rem !important;
 }
 
-section:last-of-type {
-  margin-bottom: 1rem;
+/* About Page 2-Column Compact Grid Layout */
+.about-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.25rem !important;
+  margin-bottom: 1.5rem !important;
+  width: 100% !important;
 }
 
+.about-grid section {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 1.25rem 1.5rem !important;
+  margin-bottom: 0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+  transition: var(--transition) !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Remove outer card box from Company Podcast */
+#podcast, .about-grid #podcast {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+#podcast:hover, .about-grid #podcast:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.about-grid section h2 {
+  font-size: 1.35rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+.about-grid section p,
+.about-grid section ul {
+  margin-bottom: 0.25rem !important;
+}
+
+.about-grid section:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: var(--shadow-md) !important;
+  border-color: #cbd5e1 !important;
+}
+
+.about-grid iframe {
+  width: 100% !important;
+  height: 220px !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--border-color) !important;
+  margin-top: 0.5rem !important;
+}
+
+.about-grid audio {
+  width: 100% !important;
+  margin-top: 0.75rem !important;
+}
 
 section > h2 {
-  position: relative;
-  display: block;
-  grid-column: 1 / -1;
-  width: 100%;
+  display: block !important;
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
   color: var(--text-main);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem !important;
 }
 
-section > h2 u {
-  border-bottom: 3px solid var(--primary);
-}
-
+/* --------------------------------------------------------------------------
+   Hero / Welcome Banner (Flexbox Layout)
+   -------------------------------------------------------------------------- */
 #home, #hero, #error-page {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background: #0f172a;
   color: var(--text-white);
   text-align: center;
   padding: 3.5rem 2rem;
   border-radius: var(--radius-md);
   margin-bottom: 3.5rem;
-  border: none;
   box-shadow: var(--shadow-md);
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #home h2, #hero h2, #error-page h2 {
   color: var(--text-white);
   font-size: 2.75rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
   margin-bottom: 1.25rem;
 }
 
@@ -272,37 +292,144 @@ section > h2 u {
   margin: 0 auto 1.5rem auto;
 }
 
-#home p strong, #hero p strong {
-  color: #38bdf8;
-  font-size: 1.25rem;
-}
-
-a.btn, .btn,
-#home p a, #hero p a, #contact a[href="contact.html"], section#hero a {
+a.btn, .btn, #home p a, #hero p a {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
-  background: var(--accent-gradient);
+  background: var(--primary);
   color: var(--text-white) !important;
   font-weight: 600;
   padding: 0.75rem 1.75rem;
-  border-radius: var(--radius-full);
-  box-shadow: var(--shadow-glow);
+  border-radius: 999px;
   transition: var(--transition);
   border: none;
   cursor: pointer;
-  margin: 0.35rem;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
-a.btn:hover, .btn:hover,
-#home p a:hover, #hero p a:hover, #contact a[href="contact.html"]:hover, section#hero a:hover {
+a.btn:hover, .btn:hover, #home p a:hover, #hero p a:hover {
+  background: var(--primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 15px 35px -5px rgba(37, 99, 235, 0.4);
-  background: var(--accent-gradient-hover);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
 }
 
-#services ul, #projects ol, #blogs, #leadership-teams, #pricing, .grid-cards {
+/* --------------------------------------------------------------------------
+   1. Services Section Grid & Flexbox Alignment (services.html & index.html)
+   -------------------------------------------------------------------------- */
+#services {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.75rem !important;
+  width: 100% !important;
+}
+
+#services > h2 {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  margin-bottom: 1.5rem !important;
+}
+
+#services ul {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.75rem !important;
+  list-style: none !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+}
+
+#services article {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 1.75rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  transition: var(--transition) !important;
+}
+
+#services article:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border-color: #cbd5e1 !important;
+}
+
+#services article figure {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  margin-bottom: 1rem !important;
+}
+
+#services article figure img {
+  width: 52px !important;
+  height: 52px !important;
+  object-fit: contain !important;
+  border-radius: 12px !important;
+  background: var(--primary-light) !important;
+  padding: 10px !important;
+  border: 1px solid #dbeafe !important;
+}
+
+#services article figure figcaption {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: var(--text-main) !important;
+  margin: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   11. Client Testimonials Section (2 Cards on Row 1, 1 Card on Row 2)
+   -------------------------------------------------------------------------- */
+#clients, #testimonials {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. Featured Projects Section (CSS Grid & Flexbox)
+   -------------------------------------------------------------------------- */
+#projects ol {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 1.75rem !important;
+  list-style: none !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  width: 100% !important;
+}
+
+#projects article {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#projects article figure img {
+  width: 100% !important;
+  max-width: 260px !important;
+  height: 140px !important;
+  object-fit: contain !important;
+  border: none !important;
+}
+
+#projects figure figcaption {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Latest Blogs Section (CSS Grid)
+   -------------------------------------------------------------------------- */
+#blogs {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
   gap: 1.75rem !important;
@@ -312,49 +439,21 @@ a.btn:hover, .btn:hover,
   width: 100% !important;
 }
 
-#services {
-  display: block;
-}
-
-article, section#pricing article, #leadership-teams article {
-  background: var(--bg-card);
+/* Common Card Base Styling (Flexbox Column) */
+article {
+  background: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 1.75rem;
-  transition: var(--transition);
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-article:hover, section#pricing article:hover, #leadership-teams article:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
-  border-color: #cbd5e1;
-}
-
-#services, #projects, #blogs {
-  transition: none;
-}
-
-#services:hover, #projects:hover, #blogs:hover {
-  box-shadow: none;
-}
-
-#services article, #projects article, #blogs article {
-  transition: none;
-}
-
-#services article:hover, #projects article:hover, #blogs article:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: var(--border-color);
+  transition: var(--transition);
 }
 
 article h3 {
   color: var(--text-main);
   font-size: 1.25rem;
-  font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
@@ -363,49 +462,50 @@ article p {
   flex: 1;
 }
 
-article > img {
+/* --------------------------------------------------------------------------
+   4. Pricing Plans Section (CSS Grid & Hover Elevate)
+   -------------------------------------------------------------------------- */
+#pricing {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.75rem !important;
+  list-style: none !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  width: 100% !important;
+}
+
+#pricing article:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: #cbd5e1;
+}
+
+/* --------------------------------------------------------------------------
+   5. Case Studies Section (CSS Grid)
+   -------------------------------------------------------------------------- */
+#case-studies {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.75rem !important;
+}
+
+#case-studies article {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  margin-bottom: 1.25rem;
+  padding: 1.75rem;
 }
 
-/* Service Card Icon Styling (Small 52px badges) */
-#services article figure {
-  margin: 0 0 1rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem;
+#case-studies article:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: #cbd5e1;
 }
 
-#services article figure img {
-  width: 52px !important;
-  height: 52px !important;
-  object-fit: contain !important;
-  border-radius: 12px;
-  background: var(--primary-light);
-  padding: 10px;
-  border: 1px solid #dbeafe;
-}
-
-#services article figcaption {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-/* Portfolio Project Card Image & Title Styling */
-#projects article {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0;
-  margin-bottom: 2rem;
-}
-
+/* --------------------------------------------------------------------------
+   6. Our Offices Section (CSS Grid)
+   -------------------------------------------------------------------------- */
 #offices {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
@@ -416,15 +516,13 @@ article > img {
   display: none !important;
 }
 
-#offices section, #offices article {
-  background: var(--bg-card) !important;
+#offices section {
+  background: var(--bg-surface) !important;
   border: 1px solid var(--border-color) !important;
   border-radius: var(--radius-md) !important;
   padding: 1.75rem !important;
-  margin-bottom: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-  height: 100% !important;
 }
 
 #offices iframe {
@@ -432,50 +530,33 @@ article > img {
   height: 220px !important;
   border-radius: var(--radius-sm) !important;
   margin-top: 1rem !important;
-  border: 1px solid var(--border-color) !important;
-}
-
-#case-studies {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.75rem;
-}
-
-#case-studies article {
-  background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-  margin-bottom: 0;
 }
 
-#projects article figure {
-  margin: 0 0 1rem 0;
-  width: 100%;
+
+#leadership-teams {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 1.75rem !important;
 }
 
-#projects article figure img {
+#leadership-teams > h2 {
+  grid-column: 1 / -1 !important;
   width: 100% !important;
-  max-width: 260px !important;
-  height: 140px !important;
-  object-fit: contain !important;
-  border-radius: var(--radius-sm) !important;
-  border: none !important;
-  padding: 0 !important;
-  background: transparent !important;
+  margin-bottom: 1.5rem !important;
 }
 
-#projects figure figcaption {
-  display: none !important; /* Prevents duplicate project name display */
+#leadership-teams article:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
 }
 
-/* Our Clients Logo Section Flexbox Alignment */
-#client-logos, #clients, .client-grid {
+/
+#client-logos, #clients {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: wrap !important;
   align-items: center !important;
-  justify-content: flex-start !important;
   gap: 1.5rem !important;
 }
 
@@ -489,74 +570,40 @@ article > img {
   border-radius: var(--radius-md) !important;
   padding: 1.25rem 1.75rem !important;
   margin: 0 !important;
-  transition: var(--transition) !important;
   min-width: 150px !important;
-  max-width: 220px !important;
   flex: 1 1 180px !important;
+  transition: var(--transition);
+}
+
+#client-logos figure:hover, #clients figure:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
 }
 
 #client-logos figure img, #clients figure img {
-  width: auto !important;
   max-width: 130px !important;
   height: 48px !important;
   object-fit: contain !important;
-  margin-bottom: 0.5rem !important;
-  border: none !important;
-  background: transparent !important;
-  padding: 0 !important;
-  box-shadow: none !important;
 }
 
 #client-logos figure figcaption, #clients figure figcaption {
-  display: block !important;
   font-size: 0.85rem !important;
-  font-weight: 600 !important;
   color: var(--text-muted) !important;
-  text-align: center !important;
   margin-top: 0.25rem !important;
-}
-
-/* Development Process & Standalone Diagram Figure Styling (Normal clean size) */
-#development-process figure, figure {
-  margin: 1.5rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.5rem;
-}
-
-#development-process figure img, section > figure img {
-  width: 100% !important;
-  max-width: 300px !important;
-  height: auto !important;
-  object-fit: contain !important;
-  border-radius: var(--radius-sm);
-  box-shadow: none;
-  border: none;
-  padding: 0;
-  background: transparent;
-}
-
-figcaption {
-  font-family: var(--font-heading);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  text-align: center;
 }
 
 
 #statics ul, #statistics ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  list-style: none;
-  margin-left: 0;
-  text-align: center;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  gap: 1.5rem !important;
+  list-style: none !important;
+  margin-left: 0 !important;
+  text-align: center !important;
 }
 
 #statics li, #statistics li {
-  background: linear-gradient(145deg, #f8fafc 0%, #eff6ff 100%);
+  background: #eff6ff;
   border: 1px solid #dbeafe;
   padding: 1.75rem;
   border-radius: var(--radius-md);
@@ -564,7 +611,7 @@ figcaption {
 }
 
 #statics li:hover, #statistics li:hover {
-  transform: scale(1.03);
+  transform: scale(1.04);
   border-color: var(--primary);
 }
 
@@ -573,45 +620,65 @@ figcaption {
   font-size: 2.5rem;
   color: var(--primary);
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 0.25rem;
 }
 
 
-#testimonials hr, #client-testimonials hr {
+#development-process figure img, section > figure img {
+  width: 100% !important;
+  max-width: 300px !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+
+#clients, #testimonials {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
+#testimonials hr, #clients hr {
   display: none !important;
 }
 
-#clients p, #testimonials blockquote, blockquote {
+.testimonial-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.testimonial-card p, #clients > p, #testimonials blockquote, blockquote {
   font-style: italic;
   font-size: 1.05rem;
   color: #334155;
-  background: #f1f5f9;
+  background: #f8fafc;
   padding: 1.25rem 1.5rem;
-  border-left: none !important;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem !important;
+  line-height: 1.6;
 }
 
-#clients i, #testimonials cite {
-  display: block;
-  font-weight: 600;
-  color: var(--primary);
-  font-style: normal;
-  margin-bottom: 1.5rem;
-  text-align: right;
+.testimonial-card i, #clients i, #testimonials cite, cite {
+  display: block !important;
+  font-weight: 700 !important;
+  color: #2563eb !important;
+  font-style: normal !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0 !important;
+  text-align: right !important;
+  width: 100% !important;
 }
 
 table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  border-collapse: collapse;
   margin: 1.5rem 0;
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-sm);
 }
 
 th, td {
@@ -623,9 +690,7 @@ th {
   background: var(--bg-dark);
   color: var(--text-white);
   font-weight: 600;
-  font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 tr:nth-child(even) {
@@ -639,17 +704,14 @@ tr:hover td {
 td {
   border-bottom: 1px solid var(--border-color);
   color: var(--text-muted);
-  font-weight: 500;
 }
 
 .table-responsive {
   width: 100%;
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
   margin-bottom: 1.5rem;
 }
 
-/* Center Newsletter, Job Application & Contact Forms */
 #newsletter, section#newsletter, #job-application, section#job-application {
   display: flex !important;
   flex-direction: column !important;
@@ -668,7 +730,6 @@ td {
   text-align: left !important;
 }
 
-/* Form Controls & Card Box Styling */
 form br {
   display: none !important;
 }
@@ -680,7 +741,6 @@ form {
   flex-direction: row !important;
   flex-wrap: wrap !important;
   align-items: center !important;
-  gap: 0 !important;
   width: 100%;
   background: #ffffff;
   border: 1px solid var(--border-color);
@@ -702,9 +762,54 @@ form > textarea {
   width: 100% !important;
 }
 
+label {
+  font-weight: 700;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  margin-top: 0.85rem;
+  margin-bottom: 0.25rem;
+  display: block;
+  width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="file"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  color: var(--text-main);
+  background-color: #fdfbf7;
+  margin-bottom: 0.75rem;
+  transition: var(--transition);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
 input[type="submit"],
 button[type="submit"] {
-  background: #1b365d !important;
+  background: #2563eb !important;
   color: #ffffff !important;
   font-weight: 700;
   font-size: 0.95rem;
@@ -712,7 +817,6 @@ button[type="submit"] {
   border: none !important;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  box-shadow: none !important;
   transition: var(--transition);
   margin-top: 1rem !important;
   margin-right: 0.75rem !important;
@@ -722,8 +826,9 @@ button[type="submit"] {
 
 input[type="submit"]:hover,
 button[type="submit"]:hover {
-  background: #0f2442 !important;
+  background: #1d4ed8 !important;
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 input[type="reset"],
@@ -742,69 +847,10 @@ button[type="reset"] {
   width: auto !important;
 }
 
-.form-grid, form.grid-form {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem 1.5rem;
-  width: 100%;
+input[type="reset"]:hover {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
 }
-
-label {
-  font-weight: 700;
-  color: var(--text-main);
-  font-size: 0.95rem;
-  margin-top: 0.85rem;
-  margin-bottom: 0.25rem;
-  display: block;
-  width: 100%;
-}
-
-label span.required, label.required::after {
-  content: " *";
-  color: #ef4444;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="url"],
-input[type="file"],
-input[type="number"],
-select,
-textarea {
-  width: 100%;
-  padding: 0.85rem 1.15rem;
-  border: 1.5px solid #e2e8f0;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--text-main);
-  background-color: #fdfbf7; /* Warm soft background matching user screenshot */
-  margin-bottom: 0.75rem;
-  transition: var(--transition);
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="tel"]:focus,
-input[type="url"]:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: #1b365d;
-  background-color: #ffffff;
-  box-shadow: 0 0 0 3px rgba(27, 54, 93, 0.12);
-}
-
-textarea {
-  resize: vertical;
-  min-height: 130px;
-}
-
-
-
-
-
 
 details {
   background: var(--bg-surface);
@@ -825,8 +871,6 @@ summary {
   color: var(--text-main);
   cursor: pointer;
   font-size: 1.05rem;
-  user-select: none;
-  outline: none;
 }
 
 details p {
@@ -835,45 +879,40 @@ details p {
   color: var(--text-muted);
 }
 
-
+/* --------------------------------------------------------------------------
+   15. Footer Section (Flexbox & CSS Grid)
+   -------------------------------------------------------------------------- */
 footer {
   background: var(--bg-dark);
   color: #94a3b8;
   padding: 2rem 5% 1rem 5%;
   margin-top: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 footer hr {
   display: none;
 }
 
-footer-content,
-footer {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 footer .footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  align-items: start;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+  gap: 1.5rem !important;
 }
 
 footer h3 {
   color: var(--text-white);
   font-size: 1.05rem;
   margin-bottom: 0.85rem;
-  font-weight: 700;
 }
 
 footer nav {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.45rem;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 0.45rem !important;
 }
 
 footer nav a {
@@ -881,6 +920,7 @@ footer nav a {
   padding: 0;
   font-weight: 400;
   font-size: 0.9rem;
+  transition: var(--transition);
 }
 
 footer nav a:hover {
@@ -889,15 +929,10 @@ footer nav a:hover {
   transform: translateX(4px);
 }
 
-
 .social-connect-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  list-style: none;
-  margin-left: 0;
-  padding: 0;
+  display: flex !important;
+  gap: 0.45rem !important;
+  flex-wrap: wrap !important;
 }
 
 .social-link {
@@ -907,65 +942,35 @@ footer nav a:hover {
   background: rgba(255, 255, 255, 0.06);
   color: #e2e8f0 !important;
   padding: 0.4rem 0.8rem;
-  border-radius: var(--radius-full);
+  border-radius: 999px;
   font-size: 0.82rem;
-  font-weight: 500;
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: var(--transition);
-  text-decoration: none;
+}
+
+.social-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
 }
 
 .social-link svg {
   width: 15px;
   height: 15px;
   fill: currentColor;
-  transition: var(--transition);
-  flex-shrink: 0;
 }
-
-.social-link:hover {
-  transform: translateY(-2px);
-  color: var(--text-white) !important;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
-}
-
-
-.social-link.linkedin:hover { background: var(--brand-linkedin); border-color: var(--brand-linkedin); }
-.social-link.github:hover { background: var(--brand-github); border-color: var(--brand-github); }
-.social-link.facebook:hover { background: var(--brand-facebook); border-color: var(--brand-facebook); }
-.social-link.instagram:hover { background: var(--brand-instagram); border-color: var(--brand-instagram); }
-.social-link.youtube:hover { background: var(--brand-youtube); border-color: var(--brand-youtube); }
-.social-link.twitter:hover { background: var(--brand-twitter); border-color: var(--brand-twitter); }
 
 footer p:last-child {
   text-align: center;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 1rem;
   margin-top: 0.75rem;
-  margin-bottom: 0;
   color: #64748b;
   font-size: 0.82rem;
 }
 
-
-@media (max-width: 992px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    text-align: center;
-  }
-  
-  nav {
-    justify-content: center;
-  }
-  
-  #home h2, #hero h2, #error-page h2 {
-    font-size: 2.15rem;
-  }
-}
-
-/* Pure CSS Hamburger Checkbox Hack */
+/* --------------------------------------------------------------------------
+   16. Pure CSS Hamburger Checkbox Hack (Mobile Navigation)
+   -------------------------------------------------------------------------- */
 .nav-toggle {
   display: none !important;
 }
@@ -982,8 +987,7 @@ footer p:last-child {
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  user-select: none;
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
 
 .nav-toggle-label:hover {
@@ -1000,13 +1004,8 @@ footer p:last-child {
   header {
     display: flex !important;
     flex-direction: row !important;
-    flex-wrap: wrap !important;
-    align-items: center !important;
     justify-content: space-between !important;
     padding: 0.85rem 1.25rem !important;
-    position: sticky !important;
-    top: 0 !important;
-    z-index: 1000 !important;
   }
 
   .nav-toggle-label {
@@ -1017,13 +1016,10 @@ footer p:last-child {
     display: none !important;
     width: 100% !important;
     flex-direction: column !important;
-    align-items: stretch !important;
     background: #0f172a !important;
     padding: 0.75rem !important;
     margin-top: 0.75rem !important;
     border-radius: 12px !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
   }
 
   .nav-toggle:checked ~ nav {
@@ -1032,50 +1028,11 @@ footer p:last-child {
 
   header nav a {
     padding: 0.75rem 1rem !important;
-    text-align: left !important;
     width: 100% !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
   }
 
   .header-brand h1 {
     font-size: 1.15rem;
-  }
-
-  #home, #hero, #error-page {
-    padding: 2.5rem 1.25rem;
-  }
-
-  #home h2, #hero h2, #error-page h2 {
-    font-size: 1.75rem;
-  }
-
-  .social-connect-list {
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 480px) {
-  nav {
-    gap: 0.2rem;
-  }
-  
-  nav a {
-    font-size: 0.8rem;
-    padding: 0.35rem 0.5rem;
-  }
-
-  a.btn, .btn,
-  #home p a, #hero p a, #contact a[href="contact.html"] {
-    width: 100%;
-    margin: 0.35rem 0;
-  }
-
-  #newsletter form {
-    flex-direction: column;
-  }
-
-  #newsletter input[type="email"],
-  #newsletter input[type="text"] {
-    width: 100%;
   }
 }

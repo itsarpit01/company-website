@@ -2,12 +2,17 @@
 
 A modern, fully responsive **software development company website** built using **Semantic HTML5** and **Vanilla CSS3**. This project demonstrates how to create a professional multi-page business website without using any CSS frameworks or JavaScript libraries.
 
+<<<<<<< HEAD
 Designed with clean layouts, responsive components, and accessible HTML, the website showcases a fictional software company and its services, portfolio, pricing, blogs, careers, and contact information.
+=======
+EliteTech Solutions is a fully responsive multi-page software development company website created using semantic HTML5 and custom Vanilla CSS. The website presents comprehensive information about the company, its technology services, portfolio, case studies, pricing plans, tech blogs, career opportunities, office locations, contact forms, privacy policy, terms & conditions, and a custom 404 error page.
+>>>>>>> 32d4ed1 (feat: improve page layouts and section alignment)
 
 ---
 
 ## 🌐 Project Overview
 
+<<<<<<< HEAD
 **EliteTech Solutions** is a fictional software development company that helps businesses transform their ideas into modern digital products.
 
 The website provides a complete online presence by presenting:
@@ -27,6 +32,13 @@ The project is built using **only HTML5 and CSS3**, making it ideal for learning
 ---
 
 # ✨ Features
+=======
+EliteTech Solutions is a leading software development company that helps businesses transform their ideas into modern digital solutions. The website showcases the company's core services, featured projects, client testimonials, pricing plans, open career positions, and interactive contact channels while delivering a clean, professional online presence.
+
+---
+
+## Directory & Folder Structure
+>>>>>>> 32d4ed1 (feat: improve page layouts and section alignment)
 
 ### 🏗️ Website Structure
 
@@ -94,6 +106,7 @@ Assign-3/
 ├── assets/
 │   ├── css/
 │   │   └── style.css
+<<<<<<< HEAD
 │   │
 │   ├── js/
 │   │   └── main.js
@@ -101,6 +114,12 @@ Assign-3/
 │   ├── images/
 │   │   └── logos/
 │   │
+=======
+│   ├── js/
+│   │   └── main.js
+│   ├── images/
+│   │   └── logos/
+>>>>>>> 32d4ed1 (feat: improve page layouts and section alignment)
 │   └── icons/
 │
 └── README.md
@@ -110,6 +129,7 @@ Assign-3/
 
 # 📄 Website Pages
 
+<<<<<<< HEAD
 | Page | Description |
 |------|-------------|
 | 🏠 **Home** | Company introduction, featured services, projects, blogs, and newsletter |
@@ -207,6 +227,42 @@ This project helped practice:
 ---
 
 # 👨‍💻 Author
+=======
+- **Home (`index.html`)**: Company overview, core services grid, featured projects, latest blogs, and newsletter subscription form.
+- **About (`about.html`)**: Company story, mission, timeline, culture, leadership team, certifications, awards, and video showcase.
+- **Services (`services.html`)**: Detailed service offerings, development process diagram, pricing preview, and interactive FAQ details.
+- **Portfolio (`portfolio.html`)**: Project gallery, detailed case study cards, and client logos.
+- **Pricing (`pricing.html`)**: Structured pricing plans (Starter, Professional, Enterprise) and feature comparison table.
+- **Blog (`blog.html`)**: Tech articles, blog categories, popular posts, and newsletter subscription form.
+- **Careers (`careers.html`)**: Job openings, company benefits, and job application form.
+- **Contact (`contact.html`)**: Contact details, office locations with embedded Google Maps, and contact form.
+- **Privacy Policy (`privacy-policy.html`)**: Official data privacy policies and user guidelines.
+- **Terms & Conditions (`terms-and-conditions.html`)**: Terms of service and usage conditions.
+- **404 Error Page (`404.html`)**: Custom error page with quick return navigation.
+
+---
+
+## Key Features & Design Enhancements
+
+- **Multi-Page Semantic Architecture**: Structured using HTML5 semantic tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<figure>`, `<footer>`).
+- **Responsive Layout System**: Powered by custom CSS Grid and Flexbox for seamless display across Desktop, Tablet, and Mobile viewports.
+- **Pure HTML/CSS Hamburger Menu**: Responsive mobile navigation toggle (`☰` / `✕`) using the Pure CSS Checkbox Hack without external framework overhead.
+- **Unified Card Layout**: Single main container box with soft shadows (`#ffffff` cards over `#f8fafc` background).
+- **Form UI Styling**: Customized form inputs (`#fdfbf7` soft fill), side-by-side action buttons (`Subscribe` & `Clear`), and tightened field spacing.
+- **Google Maps Integration**: Embedded maps for branch office locations (Chandigarh, Bangalore, Hyderabad).
+- **SEO & Accessibility**: Complete meta tags (description, keywords, author, viewport), heading hierarchy (`<h1>`-`<h3>`), image alt attributes, and accessible form labels.
+
+---
+
+## HTML & CSS Technologies Used
+
+- **HTML5 Elements**: `html`, `head`, `body`, `header`, `nav`, `main`, `section`, `article`, `figure`, `figcaption`, `footer`, `h1` to `h3`, `p`, `ul`, `ol`, `li`, `table`, `tr`, `th`, `td`, `form`, `input`, `textarea`, `select`, `option`, `label`, `button`, `details`, `summary`, `iframe`, `img`, `a`, `strong`.
+- **Vanilla CSS3**: Design system tokens (`:root` variables), system font stack, CSS Grid, Flexbox, responsive `@media` queries, transitions, and backdrop filters.
+
+---
+
+## Author
+>>>>>>> 32d4ed1 (feat: improve page layouts and section alignment)
 
 **Arpit Thakur**
 
