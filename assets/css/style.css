@@ -394,6 +394,23 @@ a.btn:hover, .btn:hover, #home p a:hover, #hero p a:hover {
 /* --------------------------------------------------------------------------
    2. Featured Projects Section (CSS Grid & Flexbox)
    -------------------------------------------------------------------------- */
+#projects {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 1.75rem !important;
+  width: 100% !important;
+}
+
+#projects > h2 {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  margin-bottom: 1.5rem !important;
+}
+
+#projects hr {
+  display: none !important;
+}
+
 #projects ol {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
@@ -401,17 +418,34 @@ a.btn:hover, .btn:hover, #home p a:hover, #hero p a:hover {
   list-style: none !important;
   margin-left: 0 !important;
   padding-left: 0 !important;
+  grid-column: 1 / -1 !important;
   width: 100% !important;
 }
 
 #projects article {
-  background: transparent;
-  border: none;
-  padding: 0;
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 1.75rem !important;
+  margin-bottom: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  transition: var(--transition) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+}
+
+#projects article:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border-color: #cbd5e1 !important;
+}
+
+#projects article figure {
+  margin: 0 0 1rem 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
 }
 
 #projects article figure img {
@@ -419,7 +453,10 @@ a.btn:hover, .btn:hover, #home p a:hover, #hero p a:hover {
   max-width: 260px !important;
   height: 140px !important;
   object-fit: contain !important;
+  border-radius: var(--radius-sm) !important;
   border: none !important;
+  padding: 0 !important;
+  background: transparent !important;
 }
 
 #projects figure figcaption {
@@ -427,9 +464,9 @@ a.btn:hover, .btn:hover, #home p a:hover, #hero p a:hover {
 }
 
 /* --------------------------------------------------------------------------
-   3. Latest Blogs Section (CSS Grid)
+   3. Latest Blogs Section (Matching Our Projects Grid & Card Box Layout)
    -------------------------------------------------------------------------- */
-#blogs {
+#blog, #blogs {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
   gap: 1.75rem !important;
@@ -437,6 +474,57 @@ a.btn:hover, .btn:hover, #home p a:hover, #hero p a:hover {
   margin-left: 0 !important;
   padding-left: 0 !important;
   width: 100% !important;
+}
+
+#blog > h2, #blogs > h2 {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  margin-bottom: 1.5rem !important;
+}
+
+#blog hr, #blogs hr {
+  display: none !important;
+}
+
+#blog article, #blogs article {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 1.75rem !important;
+  margin-bottom: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+  transition: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+}
+
+#blog article:hover, #blogs article:hover {
+  transform: none !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+  border-color: var(--border-color) !important;
+}
+
+#blog article figure, #blogs article figure {
+  margin: 0 0 1rem 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+#blog article figure img, #blogs article figure img {
+  width: 100% !important;
+  max-width: 260px !important;
+  height: 140px !important;
+  object-fit: contain !important;
+  border-radius: var(--radius-sm) !important;
+  border: none !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+#blog figure figcaption, #blogs figure figcaption {
+  display: none !important;
 }
 
 /* Common Card Base Styling (Flexbox Column) */
@@ -551,16 +639,26 @@ article p {
   box-shadow: var(--shadow-lg);
 }
 
-/
-#client-logos, #clients {
+/* --------------------------------------------------------------------------
+   8. Our Clients Logo Grid (Responsive Flexbox & CSS Grid)
+   -------------------------------------------------------------------------- */
+#client-logos, section#client-logos {
   display: flex !important;
   flex-direction: row !important;
   flex-wrap: wrap !important;
   align-items: center !important;
-  gap: 1.5rem !important;
+  justify-content: flex-start !important;
+  gap: 1.25rem !important;
+  width: 100% !important;
 }
 
-#client-logos figure, #clients figure {
+#client-logos > h2 {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  margin-bottom: 1.5rem !important;
+}
+
+#client-logos figure {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -568,28 +666,42 @@ article p {
   background: var(--bg-surface) !important;
   border: 1px solid var(--border-color) !important;
   border-radius: var(--radius-md) !important;
-  padding: 1.25rem 1.75rem !important;
+  padding: 1rem 1.5rem !important;
   margin: 0 !important;
-  min-width: 150px !important;
-  flex: 1 1 180px !important;
-  transition: var(--transition);
+  transition: var(--transition) !important;
+  width: auto !important;
+  min-width: 140px !important;
+  max-width: 200px !important;
+  flex: 1 1 160px !important;
+  height: 110px !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
 }
 
-#client-logos figure:hover, #clients figure:hover {
-  border-color: var(--primary);
-  transform: translateY(-2px);
+#client-logos figure:hover {
+  border-color: var(--primary) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: var(--shadow-md) !important;
 }
 
-#client-logos figure img, #clients figure img {
-  max-width: 130px !important;
-  height: 48px !important;
+#client-logos figure img {
+  width: auto !important;
+  max-width: 110px !important;
+  height: 42px !important;
   object-fit: contain !important;
+  margin-bottom: 0.35rem !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
 }
 
-#client-logos figure figcaption, #clients figure figcaption {
+#client-logos figure figcaption {
+  display: block !important;
   font-size: 0.85rem !important;
+  font-weight: 600 !important;
   color: var(--text-muted) !important;
-  margin-top: 0.25rem !important;
+  text-align: center !important;
+  margin-top: 0 !important;
 }
 
 
