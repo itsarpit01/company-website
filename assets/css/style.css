@@ -1,9 +1,5 @@
-/* ==========================================================================
-   EliteTech Solutions - Comprehensive CSS with Explicit Flexbox & Grid Systems
-   ========================================================================== */
-
 :root {
-  /* Color Palette */
+ 
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
   --primary-light: #eff6ff;
@@ -16,7 +12,7 @@
   --text-white: #ffffff;
   --border-color: #e2e8f0;
 
-  /* Basic Tokens */
+ 
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
@@ -26,7 +22,7 @@
   --transition: all 0.3s ease;
 }
 
-/* Reset Base Styles */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -48,7 +44,7 @@ body {
   flex-direction: column;
 }
 
-/* Typography & Headings */
+
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-main);
   font-weight: 700;
@@ -98,21 +94,19 @@ ul, ol {
   margin-bottom: 1.5rem;
 }
 
-/* --------------------------------------------------------------------------
-   Header & Navigation Bar (Flexbox)
-   -------------------------------------------------------------------------- */
+
 header {
   position: sticky;
   top: 0;
-  z-index: 1000;
-  background: rgba(15, 23, 42, 0.95);
+  z-index: 100;
+  background: rgb(15, 23, 42);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0.85rem 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  box-shadow: none !important;
+  box-shadow: none;
 }
 
 .header-brand {
@@ -169,102 +163,98 @@ nav a.active {
   font-weight: 600;
 }
 
-/* --------------------------------------------------------------------------
-   Main Container Box & Section Headings (Full Width New Line Layout)
-   -------------------------------------------------------------------------- */
+
 main {
   flex: 1;
   width: 92%;
   max-width: 1240px;
   margin: 1rem auto;
   padding: 1rem 0;
-  background: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 main > section, section {
-  width: 100% !important;
-  display: block !important;
-  clear: both !important;
-  margin-bottom: 3.5rem !important;
+  width: 100%;
+  display: block;
+  clear: both;
+  margin-bottom: 3.5rem;
 }
 
-/* About Page 2-Column Compact Grid Layout */
+
 .about-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  gap: 1.25rem !important;
-  margin-bottom: 1.5rem !important;
-  width: 100% !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
 }
 
 .about-grid section {
-  background: var(--bg-surface) !important;
-  border: 1px solid var(--border-color) !important;
-  border-radius: var(--radius-md) !important;
-  padding: 1.25rem 1.5rem !important;
-  margin-bottom: 0 !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
-  transition: var(--transition) !important;
-  display: flex !important;
-  flex-direction: column !important;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
 }
 
-/* Remove outer card box from Company Podcast */
+
 #podcast, .about-grid #podcast {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
 }
 
 #podcast:hover, .about-grid #podcast:hover {
-  transform: none !important;
-  box-shadow: none !important;
+  transform: none;
+  box-shadow: none;
 }
 
 .about-grid section h2 {
-  font-size: 1.35rem !important;
-  margin-bottom: 0.75rem !important;
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
 }
 
 .about-grid section p,
 .about-grid section ul {
-  margin-bottom: 0.25rem !important;
+  margin-bottom: 0.25rem;
 }
 
 .about-grid section:hover {
-  transform: translateY(-3px) !important;
-  box-shadow: var(--shadow-md) !important;
-  border-color: #cbd5e1 !important;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: #cbd5e1;
 }
 
 .about-grid iframe {
-  width: 100% !important;
-  height: 220px !important;
-  border-radius: var(--radius-sm) !important;
-  border: 1px solid var(--border-color) !important;
-  margin-top: 0.5rem !important;
+  width: 100%;
+  height: 220px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  margin-top: 0.5rem;
 }
 
 .about-grid audio {
-  width: 100% !important;
-  margin-top: 0.75rem !important;
+  width: 100%;
+  margin-top: 0.75rem;
 }
 
 section > h2 {
-  display: block !important;
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
+  display: block;
+  grid-column: 1 / -1;
+  width: 100%;
   color: var(--text-main);
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 1.5rem;
 }
 
-/* --------------------------------------------------------------------------
-   Hero / Welcome Banner (Flexbox Layout)
-   -------------------------------------------------------------------------- */
+
 #home, #hero, #error-page {
   background: #0f172a;
   color: var(--text-white);
@@ -272,7 +262,7 @@ section > h2 {
   padding: 3.5rem 2rem;
   border-radius: var(--radius-md);
   margin-bottom: 3.5rem;
-  box-shadow: none !important;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -297,7 +287,7 @@ a.btn, .btn, #home p a, #hero p a {
   align-items: center;
   gap: 0.5rem;
   background: var(--primary);
-  color: var(--text-white) !important;
+  color: var(--text-white);
   font-weight: 600;
   padding: 0.75rem 1.75rem;
   border-radius: 999px;
@@ -313,221 +303,212 @@ a.btn:hover, .btn:hover, #home p a:hover, #hero p a:hover {
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
 }
 
-/* --------------------------------------------------------------------------
-   1. Services Section Grid & Flexbox Alignment (services.html & index.html)
-   -------------------------------------------------------------------------- */
+
 #services {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  gap: 1.75rem !important;
-  width: 100% !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  width: 100%;
 }
 
 #services > h2 {
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
-  margin-bottom: 1.5rem !important;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
 #services ul {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  gap: 1.75rem !important;
-  list-style: none !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  grid-column: 1 / -1;
+  width: 100%;
 }
 
 #services article {
-  background: var(--bg-surface) !important;
-  border: 1px solid var(--border-color) !important;
-  border-radius: var(--radius-md) !important;
-  padding: 1.75rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  height: 100% !important;
-  transition: var(--transition) !important;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: var(--transition);
 }
 
 #services article:hover {
-  transform: translateY(-5px) !important;
-  box-shadow: var(--shadow-lg) !important;
-  border-color: #cbd5e1 !important;
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: #cbd5e1;
 }
 
 #services article figure {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  gap: 0.75rem !important;
-  margin-bottom: 1rem !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 #services article figure img {
-  width: 52px !important;
-  height: 52px !important;
-  object-fit: contain !important;
-  border-radius: 12px !important;
-  background: var(--primary-light) !important;
-  padding: 10px !important;
-  border: 1px solid #dbeafe !important;
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: var(--primary-light);
+  padding: 10px;
+  border: 1px solid #dbeafe;
 }
 
 #services article figure figcaption {
-  font-size: 1.25rem !important;
-  font-weight: 700 !important;
-  color: var(--text-main) !important;
-  margin: 0 !important;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
 }
 
-/* --------------------------------------------------------------------------
-   11. Client Testimonials Section (2 Cards on Row 1, 1 Card on Row 2)
-   -------------------------------------------------------------------------- */
+
 #clients, #testimonials {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)) !important;
-  gap: 1.5rem !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 1.5rem;
 }
 
-/* --------------------------------------------------------------------------
-   2. Featured Projects Section (CSS Grid & Flexbox)
-   -------------------------------------------------------------------------- */
+
 #projects {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  gap: 1.75rem !important;
-  width: 100% !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  width: 100%;
 }
 
 #projects > h2 {
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
-  margin-bottom: 1.5rem !important;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
 #projects hr {
-  display: none !important;
+  display: none;
 }
 
 #projects ol {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
-  gap: 1.75rem !important;
-  list-style: none !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  grid-column: 1 / -1;
+  width: 100%;
 }
 
 #projects article {
-  background: var(--bg-surface) !important;
-  border: 1px solid var(--border-color) !important;
-  border-radius: var(--radius-md) !important;
-  padding: 1.75rem !important;
-  margin-bottom: 0 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  height: 100% !important;
-  transition: var(--transition) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: var(--transition);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 #projects article:hover {
-  transform: translateY(-5px) !important;
-  box-shadow: var(--shadow-lg) !important;
-  border-color: #cbd5e1 !important;
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: #cbd5e1;
 }
 
 #projects article figure {
-  margin: 0 0 1rem 0 !important;
-  width: 100% !important;
-  display: flex !important;
-  justify-content: center !important;
+  margin: 0 0 1rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 #projects article figure img {
-  width: 100% !important;
-  max-width: 260px !important;
-  height: 140px !important;
-  object-fit: contain !important;
-  border-radius: var(--radius-sm) !important;
-  border: none !important;
-  padding: 0 !important;
-  background: transparent !important;
+  width: 100%;
+  max-width: 260px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: none;
+  padding: 0;
+  background: transparent;
 }
 
 #projects figure figcaption {
-  display: none !important;
+  display: none;
 }
 
-/* --------------------------------------------------------------------------
-   3. Latest Blogs Section (Matching Our Projects Grid & Card Box Layout)
-   -------------------------------------------------------------------------- */
+
 #blog, #blogs {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  gap: 1.75rem !important;
-  list-style: none !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
-  width: 100% !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  width: 100%;
 }
 
 #blog > h2, #blogs > h2 {
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
-  margin-bottom: 1.5rem !important;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
 #blog hr, #blogs hr {
-  display: none !important;
+  display: none;
 }
 
 #blog article, #blogs article {
-  background: var(--bg-surface) !important;
-  border: 1px solid var(--border-color) !important;
-  border-radius: var(--radius-md) !important;
-  padding: 1.75rem !important;
-  margin-bottom: 0 !important;
-  display: flex !important;
-  flex-direction: column !important;
-  height: 100% !important;
-  transition: none !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 #blog article:hover, #blogs article:hover {
-  transform: none !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
-  border-color: var(--border-color) !important;
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  border-color: var(--border-color);
 }
 
 #blog article figure, #blogs article figure {
-  margin: 0 0 1rem 0 !important;
-  width: 100% !important;
-  display: flex !important;
-  justify-content: center !important;
+  margin: 0 0 1rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 #blog article figure img, #blogs article figure img {
-  width: 100% !important;
-  max-width: 260px !important;
-  height: 140px !important;
-  object-fit: contain !important;
-  border-radius: var(--radius-sm) !important;
-  border: none !important;
-  padding: 0 !important;
-  background: transparent !important;
+  width: 100%;
+  max-width: 260px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: none;
+  padding: 0;
+  background: transparent;
 }
 
 #blog figure figcaption, #blogs figure figcaption {
-  display: none !important;
+  display: none;
 }
 
-/* Common Card Base Styling (Flexbox Column) */
 article {
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
@@ -550,84 +531,80 @@ article p {
   flex: 1;
 }
 
-/* --------------------------------------------------------------------------
-   4. Pricing Plans Section (CSS Grid & Card Styling)
-   -------------------------------------------------------------------------- */
+
 #pricing {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 1.75rem !important;
-  width: 100% !important;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  width: 100%;
 }
 
 @media (max-width: 992px) {
   #pricing {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
 #pricing > h2 {
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
-  margin-bottom: 1.5rem !important;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
 #pricing hr {
-  display: none !important;
+  display: none;
 }
 
 #pricing article {
-  background: var(--bg-surface) !important;
-  border: 1px solid var(--border-color) !important;
-  border-radius: var(--radius-md) !important;
-  padding: 1.75rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  height: auto !important;
-  min-height: 100% !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
-  transition: var(--transition) !important;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  transition: var(--transition);
 }
 
 #pricing article:hover {
-  transform: translateY(-5px) !important;
-  box-shadow: var(--shadow-lg) !important;
-  border-color: #cbd5e1 !important;
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: #cbd5e1;
 }
 
 #pricing article p {
-  flex: none !important;
-  margin-bottom: 0.5rem !important;
+  flex: none;
+  margin-bottom: 0.5rem;
 }
 
 #pricing article h3 {
-  font-size: 1.5rem !important;
-  color: var(--text-main) !important;
-  margin-bottom: 1rem !important;
-  padding-bottom: 0.5rem !important;
-  border-bottom: 2px solid var(--primary-light) !important;
+  font-size: 1.5rem;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-light);
 }
 
 #pricing article ul {
-  flex: 1 !important;
-  margin-bottom: 1.25rem !important;
-  padding-left: 1.25rem !important;
+  flex: 1;
+  margin-bottom: 1.25rem;
+  padding-left: 1.25rem;
 }
 
 #pricing article a {
-  display: block !important;
-  text-align: center !important;
-  width: 100% !important;
-  margin-top: 1rem !important;
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin-top: 1rem;
 }
 
-/* --------------------------------------------------------------------------
-   5. Case Studies Section (CSS Grid)
-   -------------------------------------------------------------------------- */
+
 #case-studies {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  gap: 1.75rem !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
 }
 
 #case-studies article {
@@ -643,47 +620,44 @@ article p {
   border-color: #cbd5e1;
 }
 
-/* --------------------------------------------------------------------------
-   6. Our Offices Section (CSS Grid)
-   -------------------------------------------------------------------------- */
 #offices {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
-  gap: 1.75rem !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.75rem;
 }
 
 #offices hr, section hr, #projects hr, #case-studies hr, #pricing hr {
-  display: none !important;
+  display: none;
 }
 
 #offices section {
-  background: var(--bg-surface) !important;
-  border: 1px solid var(--border-color) !important;
-  border-radius: var(--radius-md) !important;
-  padding: 1.75rem !important;
-  display: flex !important;
-  flex-direction: column !important;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
 }
 
 #offices iframe {
-  width: 100% !important;
-  height: 220px !important;
-  border-radius: var(--radius-sm) !important;
-  margin-top: 1rem !important;
+  width: 100%;
+  height: 220px;
+  border-radius: var(--radius-sm);
+  margin-top: 1rem;
   border: 1px solid var(--border-color);
 }
 
 
 #leadership-teams {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
-  gap: 1.75rem !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
 }
 
 #leadership-teams > h2 {
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
-  margin-bottom: 1.5rem !important;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
 #leadership-teams article:hover {
@@ -691,79 +665,76 @@ article p {
   box-shadow: var(--shadow-lg);
 }
 
-/* --------------------------------------------------------------------------
-   8. Our Clients Logo Grid (Responsive Flexbox & CSS Grid)
-   -------------------------------------------------------------------------- */
 #client-logos, section#client-logos {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: 1.25rem !important;
-  width: 100% !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  width: 100%;
 }
 
 #client-logos > h2 {
-  grid-column: 1 / -1 !important;
-  width: 100% !important;
-  margin-bottom: 1.5rem !important;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
 
 #client-logos figure {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background: var(--bg-surface) !important;
-  border: 1px solid var(--border-color) !important;
-  border-radius: var(--radius-md) !important;
-  padding: 1rem 1.5rem !important;
-  margin: 0 !important;
-  transition: var(--transition) !important;
-  width: auto !important;
-  min-width: 140px !important;
-  max-width: 200px !important;
-  flex: 1 1 160px !important;
-  height: 110px !important;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  margin: 0;
+  transition: var(--transition);
+  width: auto;
+  min-width: 140px;
+  max-width: 200px;
+  flex: 1 1 160px;
+  height: 110px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
 #client-logos figure:hover {
-  border-color: var(--primary) !important;
-  transform: translateY(-3px) !important;
-  box-shadow: var(--shadow-md) !important;
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
 }
 
 #client-logos figure img {
-  width: auto !important;
-  max-width: 110px !important;
-  height: 42px !important;
-  object-fit: contain !important;
-  margin-bottom: 0.35rem !important;
-  border: none !important;
-  background: transparent !important;
-  padding: 0 !important;
-  box-shadow: none !important;
+  width: auto;
+  max-width: 110px;
+  height: 42px;
+  object-fit: contain;
+  margin-bottom: 0.35rem;
+  border: none;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
 }
 
 #client-logos figure figcaption {
-  display: block !important;
-  font-size: 0.85rem !important;
-  font-weight: 600 !important;
-  color: var(--text-muted) !important;
-  text-align: center !important;
-  margin-top: 0 !important;
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0;
 }
 
 
 #statics ul, #statistics ul {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
-  gap: 1.5rem !important;
-  list-style: none !important;
-  margin-left: 0 !important;
-  text-align: center !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  margin-left: 0;
+  text-align: center;
 }
 
 #statics li, #statistics li {
@@ -788,21 +759,21 @@ article p {
 
 
 #development-process figure img, section > figure img {
-  width: 100% !important;
-  max-width: 300px !important;
-  height: auto !important;
-  object-fit: contain !important;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
 }
 
 
 #clients, #testimonials {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)) !important;
-  gap: 1.5rem !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 1.5rem;
 }
 
 #testimonials hr, #clients hr {
-  display: none !important;
+  display: none;
 }
 
 .testimonial-card {
@@ -821,64 +792,64 @@ article p {
   padding: 1.25rem 1.5rem;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.5rem;
   line-height: 1.6;
 }
 
 .testimonial-card i, #clients i, #testimonials cite, cite {
-  display: block !important;
-  font-weight: 700 !important;
-  color: #2563eb !important;
-  font-style: normal !important;
-  margin-top: 0.5rem !important;
-  margin-bottom: 0 !important;
-  text-align: right !important;
-  width: 100% !important;
+  display: block;
+  font-weight: 700;
+  color: #2563eb;
+  font-style: normal;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  text-align: right;
+  width: 100%;
 }
 
 table {
-  width: 100% !important;
-  border-collapse: collapse !important;
-  margin: 1.5rem 0 !important;
-  border: 1.5px solid #cbd5e1 !important;
-  border-radius: var(--radius-md) !important;
-  overflow: hidden !important;
-  background: #ffffff !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 th, td {
-  padding: 1rem 1.25rem !important;
-  text-align: left !important;
-  border: 1px solid #cbd5e1 !important;
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border: 1px solid #cbd5e1;
 }
 
 th {
-  background: #0f172a !important;
-  color: #ffffff !important;
-  font-weight: 700 !important;
-  font-size: 0.95rem !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.5px !important;
-  border-bottom: 2px solid #cbd5e1 !important;
+  background: #0f172a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #cbd5e1;
 }
 
 tr:nth-child(odd) td {
-  background-color: #ffffff !important;
+  background-color: #ffffff;
 }
 
 tr:nth-child(even) td {
-  background-color: #f1f5f9 !important;
+  background-color: #f1f5f9;
 }
 
 tr:hover td {
-  background-color: #dbeafe !important;
-  transition: var(--transition) !important;
+  background-color: #dbeafe;
+  transition: var(--transition);
 }
 
 td {
-  color: var(--text-main) !important;
-  font-size: 0.95rem !important;
+  color: var(--text-main);
+  font-size: 0.95rem;
 }
 
 .table-responsive {
@@ -888,34 +859,34 @@ td {
 }
 
 #newsletter, section#newsletter, #job-application, section#job-application {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 #newsletter h2, #newsletter p, #job-application h2, #job-application p {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #newsletter form, #job-application form {
-  margin: 1.5rem auto !important;
-  text-align: left !important;
+  margin: 1.5rem auto;
+  text-align: left;
 }
 
 form br {
-  display: none !important;
+  display: none;
 }
 
 form {
   max-width: 650px;
   margin: 1.5rem auto;
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;
-  align-items: center !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
   width: 100%;
   background: #ffffff;
   border: 1px solid var(--border-color);
@@ -933,8 +904,8 @@ form > input[type="file"],
 form > input[type="number"],
 form > select,
 form > textarea {
-  flex: 0 0 100% !important;
-  width: 100% !important;
+  flex: 0 0 100%;
+  width: 100%;
 }
 
 label {
@@ -955,7 +926,7 @@ input[type="file"],
 input[type="number"],
 select,
 textarea {
-  font-family: inherit !important;
+  font-family: inherit;
   width: 100%;
   padding: 0.85rem 1.15rem;
   border: 1.5px solid #e2e8f0;
@@ -985,47 +956,47 @@ textarea {
 
 input[type="submit"],
 button[type="submit"] {
-  background: #2563eb !important;
-  color: #ffffff !important;
+  background: #2563eb;
+  color: #ffffff;
   font-weight: 700;
   font-size: 0.95rem;
   padding: 0.85rem 2.25rem;
-  border: none !important;
+  border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: var(--transition);
-  margin-top: 1rem !important;
-  margin-right: 0.75rem !important;
-  flex: 0 0 auto !important;
-  width: auto !important;
+  margin-top: 1rem;
+  margin-right: 0.75rem;
+  flex: 0 0 auto;
+  width: auto;
 }
 
 input[type="submit"]:hover,
 button[type="submit"]:hover {
-  background: #1d4ed8 !important;
+  background: #1d4ed8;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 input[type="reset"],
 button[type="reset"] {
-  background: #ffffff !important;
-  color: #334155 !important;
+  background: #ffffff;
+  color: #334155;
   font-weight: 600;
   font-size: 0.95rem;
   padding: 0.85rem 1.75rem;
-  border: 1.5px solid #e2e8f0 !important;
+  border: 1.5px solid #e2e8f0;
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: var(--transition);
-  margin-top: 1rem !important;
-  flex: 0 0 auto !important;
-  width: auto !important;
+  margin-top: 1rem;
+  flex: 0 0 auto;
+  width: auto;
 }
 
 input[type="reset"]:hover {
-  background: #f8fafc !important;
-  border-color: #cbd5e1 !important;
+  background: #f8fafc;
+  border-color: #cbd5e1;
 }
 
 details {
@@ -1055,13 +1026,11 @@ details p {
   color: var(--text-muted);
 }
 
-/* --------------------------------------------------------------------------
-   15. Footer Section (Compact & Centered Grid)
-   -------------------------------------------------------------------------- */
+
 footer {
   background: var(--bg-dark);
   color: #94a3b8;
-  padding: 1.5rem 1.5rem 0.75rem 1.5rem !important;
+  padding: 1.5rem 1.5rem 0.75rem 1.5rem;
   margin-top: auto;
   display: flex;
   flex-direction: column;
@@ -1074,12 +1043,12 @@ footer hr {
 }
 
 footer .footer-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) !important;
-  gap: 1.5rem !important;
-  max-width: 1200px !important;
-  width: 100% !important;
-  margin: 0 auto !important;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 footer h3 {
@@ -1089,10 +1058,10 @@ footer h3 {
 }
 
 footer nav {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  gap: 0.35rem !important;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
 }
 
 footer nav a {
@@ -1110,9 +1079,9 @@ footer nav a:hover {
 }
 
 .social-connect-list {
-  display: flex !important;
-  gap: 0.35rem !important;
-  flex-wrap: wrap !important;
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
 }
 
 .social-link {
@@ -1120,7 +1089,7 @@ footer nav a:hover {
   align-items: center;
   gap: 0.35rem;
   background: rgba(255, 255, 255, 0.06);
-  color: #e2e8f0 !important;
+  color: #e2e8f0;
   padding: 0.3rem 0.65rem;
   border-radius: 999px;
   font-size: 0.78rem;
@@ -1130,36 +1099,36 @@ footer nav a:hover {
 
 .social-link:hover {
   transform: translateY(-2px);
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .social-link.linkedin:hover {
-  background: #0a66c2 !important;
-  border-color: #0a66c2 !important;
+  background: #0a66c2;
+  border-color: #0a66c2;
   box-shadow: 0 4px 10px rgba(10, 102, 194, 0.4);
 }
 
 .social-link.github:hover {
-  background: #24292f !important;
-  border-color: #444444 !important;
+  background: #24292f;
+  border-color: #444444;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .social-link.facebook:hover {
-  background: #1877f2 !important;
-  border-color: #1877f2 !important;
+  background: #1877f2;
+  border-color: #1877f2;
   box-shadow: 0 4px 10px rgba(24, 119, 242, 0.4);
 }
 
 .social-link.instagram:hover {
-  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
-  border-color: #e4405f !important;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  border-color: #e4405f;
   box-shadow: 0 4px 10px rgba(228, 64, 95, 0.4);
 }
 
 .social-link.youtube:hover {
-  background: #ff0000 !important;
-  border-color: #ff0000 !important;
+  background: #ff0000;
+  border-color: #ff0000;
   box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
 }
 
@@ -1180,11 +1149,8 @@ footer p:last-child {
   max-width: 1200px;
 }
 
-/* --------------------------------------------------------------------------
-   16. Pure CSS Hamburger Checkbox Hack (Mobile Navigation)
-   -------------------------------------------------------------------------- */
 .nav-toggle {
-  display: none !important;
+  display: none;
 }
 
 .nav-toggle-label {
@@ -1214,34 +1180,34 @@ footer p:last-child {
   }
 
   header {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    padding: 0.85rem 1.25rem !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.85rem 1.25rem;
   }
 
   .nav-toggle-label {
-    display: flex !important;
+    display: flex;
   }
 
   header nav {
-    display: none !important;
-    width: 100% !important;
-    flex-direction: column !important;
-    background: #0f172a !important;
-    padding: 0.75rem !important;
-    margin-top: 0.75rem !important;
-    border-radius: 12px !important;
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    background: #0f172a;
+    padding: 0.75rem;
+    margin-top: 0.75rem;
+    border-radius: 12px;
   }
 
   .nav-toggle:checked ~ nav {
-    display: flex !important;
+    display: flex;
   }
 
   header nav a {
-    padding: 0.75rem 1rem !important;
-    width: 100% !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .header-brand h1 {
