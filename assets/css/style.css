@@ -112,7 +112,7 @@ header {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  box-shadow: var(--shadow-md);
+  box-shadow: none !important;
 }
 
 .header-brand {
@@ -176,12 +176,12 @@ main {
   flex: 1;
   width: 92%;
   max-width: 1240px;
-  margin: 2rem auto;
-  padding: 3rem 2.5rem;
-  background: var(--bg-surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-md);
+  margin: 1rem auto;
+  padding: 1rem 0;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
 }
 
 main > section, section {
@@ -272,7 +272,7 @@ section > h2 {
   padding: 3.5rem 2rem;
   border-radius: var(--radius-md);
   margin-bottom: 3.5rem;
-  box-shadow: var(--shadow-md);
+  box-shadow: none !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1066,8 +1066,38 @@ footer nav a:hover {
 }
 
 .social-link:hover {
-  background: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
+  color: #ffffff !important;
+}
+
+.social-link.linkedin:hover {
+  background: #0a66c2 !important;
+  border-color: #0a66c2 !important;
+  box-shadow: 0 4px 10px rgba(10, 102, 194, 0.4);
+}
+
+.social-link.github:hover {
+  background: #24292f !important;
+  border-color: #444444 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.social-link.facebook:hover {
+  background: #1877f2 !important;
+  border-color: #1877f2 !important;
+  box-shadow: 0 4px 10px rgba(24, 119, 242, 0.4);
+}
+
+.social-link.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
+  border-color: #e4405f !important;
+  box-shadow: 0 4px 10px rgba(228, 64, 95, 0.4);
+}
+
+.social-link.youtube:hover {
+  background: #ff0000 !important;
+  border-color: #ff0000 !important;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
 }
 
 .social-link svg {
