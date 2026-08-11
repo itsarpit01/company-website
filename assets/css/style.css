@@ -551,22 +551,74 @@ article p {
 }
 
 /* --------------------------------------------------------------------------
-   4. Pricing Plans Section (CSS Grid & Hover Elevate)
+   4. Pricing Plans Section (CSS Grid & Card Styling)
    -------------------------------------------------------------------------- */
 #pricing {
   display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  grid-template-columns: repeat(3, 1fr) !important;
   gap: 1.75rem !important;
-  list-style: none !important;
-  margin-left: 0 !important;
-  padding-left: 0 !important;
   width: 100% !important;
 }
 
+@media (max-width: 992px) {
+  #pricing {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  }
+}
+
+#pricing > h2 {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  margin-bottom: 1.5rem !important;
+}
+
+#pricing hr {
+  display: none !important;
+}
+
+#pricing article {
+  background: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-md) !important;
+  padding: 1.75rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: auto !important;
+  min-height: 100% !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03) !important;
+  transition: var(--transition) !important;
+}
+
 #pricing article:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: #cbd5e1;
+  transform: translateY(-5px) !important;
+  box-shadow: var(--shadow-lg) !important;
+  border-color: #cbd5e1 !important;
+}
+
+#pricing article p {
+  flex: none !important;
+  margin-bottom: 0.5rem !important;
+}
+
+#pricing article h3 {
+  font-size: 1.5rem !important;
+  color: var(--text-main) !important;
+  margin-bottom: 1rem !important;
+  padding-bottom: 0.5rem !important;
+  border-bottom: 2px solid var(--primary-light) !important;
+}
+
+#pricing article ul {
+  flex: 1 !important;
+  margin-bottom: 1.25rem !important;
+  padding-left: 1.25rem !important;
+}
+
+#pricing article a {
+  display: block !important;
+  text-align: center !important;
+  width: 100% !important;
+  margin-top: 1rem !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -785,37 +837,48 @@ article p {
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5rem 0;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  overflow: hidden;
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 1.5rem 0 !important;
+  border: 1.5px solid #cbd5e1 !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
 }
 
 th, td {
-  padding: 1rem 1.25rem;
-  text-align: left;
+  padding: 1rem 1.25rem !important;
+  text-align: left !important;
+  border: 1px solid #cbd5e1 !important;
 }
 
 th {
-  background: var(--bg-dark);
-  color: var(--text-white);
-  font-weight: 600;
-  text-transform: uppercase;
+  background: #0f172a !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  border-bottom: 2px solid #cbd5e1 !important;
 }
 
-tr:nth-child(even) {
-  background-color: #f8fafc;
+tr:nth-child(odd) td {
+  background-color: #ffffff !important;
+}
+
+tr:nth-child(even) td {
+  background-color: #f1f5f9 !important;
 }
 
 tr:hover td {
-  background-color: #eff6ff;
+  background-color: #dbeafe !important;
+  transition: var(--transition) !important;
 }
 
 td {
-  border-bottom: 1px solid var(--border-color);
-  color: var(--text-muted);
+  color: var(--text-main) !important;
+  font-size: 0.95rem !important;
 }
 
 .table-responsive {
