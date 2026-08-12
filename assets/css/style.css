@@ -1,5 +1,7 @@
+/* ==========================================================================
+   DESIGN SYSTEM TOKENS & RESET
+   ========================================================================== */
 :root {
- 
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
   --primary-light: #eff6ff;
@@ -12,7 +14,6 @@
   --text-white: #ffffff;
   --border-color: #e2e8f0;
 
- 
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
@@ -21,7 +22,6 @@
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
   --transition: all 0.3s ease;
 }
-
 
 * {
   box-sizing: border-box;
@@ -44,7 +44,9 @@ body {
   flex-direction: column;
 }
 
-
+/* ==========================================================================
+   TYPOGRAPHY & BASIC ELEMENTS
+   ========================================================================== */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-main);
   font-weight: 700;
@@ -94,14 +96,44 @@ ul, ol {
   margin-bottom: 1.5rem;
 }
 
+section > h2 {
+  display: block;
+  grid-column: 1 / -1;
+  width: 100%;
+  color: var(--text-main);
+  margin-bottom: 1.5rem;
+}
 
+/* FIX: nested lists (the <ul> inside #services, the <ol> inside #projects)
+   must span the FULL width of their parent grid section, otherwise they
+   only occupy ONE column of the parent grid and get squeezed into a
+   fraction of the row, leaving the rest of the row blank. This rule
+   works at every breakpoint automatically -- on mobile the parent is a
+   flex column (not a grid), so grid-column is simply ignored there. */
+#services ul,
+#projects ol {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+#offices hr, section hr, #projects hr, #case-studies hr, #pricing hr, #testimonials hr, #clients hr, #blog hr, #blogs hr, footer hr {
+  display: none;
+}
+
+
+/* ==========================================================================
+   1. MOBILE-FIRST BASE STYLES (SMALL SCREENS / MOBILE < 640px)
+   Default 1-Column Stacked Layout
+   ========================================================================== */
+
+/* --- Header & Mobile Checkbox Navigation --- */
 header {
   position: sticky;
   top: 0;
   z-index: 100;
   background: rgb(15, 23, 42);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.85rem 5%;
+  padding: 0.85rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -127,7 +159,7 @@ header {
 }
 
 .header-brand h1 {
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   color: var(--text-white);
   font-weight: 800;
 }
@@ -136,40 +168,71 @@ header {
   border-bottom: 2px solid #06b6d4;
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  flex-wrap: wrap;
+.nav-toggle {
+  display: none;
 }
 
-nav a {
+.nav-toggle-label {
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1.5rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 6px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.nav-toggle-label:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+header nav {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  background: #0f172a;
+  padding: 0.75rem;
+  margin-top: 0.75rem;
+  border-radius: 12px;
+}
+
+.nav-toggle:checked ~ nav {
+  display: flex;
+}
+
+header nav a {
   color: #cbd5e1;
   font-weight: 500;
   font-size: 0.93rem;
-  padding: 0.5rem 0.85rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-sm);
   transition: var(--transition);
 }
 
-nav a:hover {
+header nav a:hover {
   color: var(--text-white);
   background: rgba(255, 255, 255, 0.15);
 }
 
-nav a.active {
+header nav a.active {
   color: var(--text-white);
   background: var(--primary);
   font-weight: 600;
 }
 
-
+/* --- Main Page Container (Mobile) --- */
 main {
   flex: 1;
-  width: 92%;
-  max-width: 1240px;
+  width: 95%;
   margin: 1rem auto;
-  padding: 1rem 0;
+  padding: 1.75rem 1.25rem;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -183,15 +246,104 @@ main > section, section {
   margin-bottom: 3.5rem;
 }
 
-
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
-  margin-bottom: 1.5rem;
-  width: 100%;
+/* --- Hero Banners --- */
+#home, #hero, #error-page {
+  background: #0f172a;
+  color: var(--text-white);
+  text-align: center;
+  padding: 3.5rem 2rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 3.5rem;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+#home h2, #hero h2, #error-page h2 {
+  color: var(--text-white);
+  font-size: 2.25rem;
+  margin-bottom: 1.25rem;
+}
+
+#home p, #hero p, #error-page p {
+  color: #94a3b8;
+  font-size: 1.05rem;
+  max-width: 700px;
+  margin: 0 auto 1.5rem auto;
+}
+
+a.btn, .btn, #home p a, #hero p a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: var(--text-white);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+a.btn:hover, .btn:hover, #home p a:hover, #hero p a:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+/* --- Common Card Base Styling --- */
+article {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: var(--transition);
+}
+
+article h3 {
+  color: var(--text-main);
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+article p {
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+/* --- Sections Default to 1-Column Stack on Mobile --- */
+.about-grid,
+#services,
+#services ul,
+#clients,
+#testimonials,
+#projects,
+#projects ol,
+#blog,
+#blogs,
+#pricing,
+#case-studies,
+#offices,
+#leadership-teams,
+#statics ul,
+#statistics ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* --- About Grid Custom Cards --- */
 .about-grid section {
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
@@ -203,7 +355,6 @@ main > section, section {
   display: flex;
   flex-direction: column;
 }
-
 
 #podcast, .about-grid #podcast {
   background: transparent;
@@ -246,99 +397,7 @@ main > section, section {
   margin-top: 0.75rem;
 }
 
-section > h2 {
-  display: block;
-  grid-column: 1 / -1;
-  width: 100%;
-  color: var(--text-main);
-  margin-bottom: 1.5rem;
-}
-
-
-#home, #hero, #error-page {
-  background: #0f172a;
-  color: var(--text-white);
-  text-align: center;
-  padding: 3.5rem 2rem;
-  border-radius: var(--radius-md);
-  margin-bottom: 3.5rem;
-  box-shadow: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#home h2, #hero h2, #error-page h2 {
-  color: var(--text-white);
-  font-size: 2.75rem;
-  margin-bottom: 1.25rem;
-}
-
-#home p, #hero p, #error-page p {
-  color: #94a3b8;
-  font-size: 1.15rem;
-  max-width: 700px;
-  margin: 0 auto 1.5rem auto;
-}
-
-a.btn, .btn, #home p a, #hero p a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--primary);
-  color: var(--text-white);
-  font-weight: 600;
-  padding: 0.75rem 1.75rem;
-  border-radius: 999px;
-  transition: var(--transition);
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-}
-
-a.btn:hover, .btn:hover, #home p a:hover, #hero p a:hover {
-  background: var(--primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
-}
-
-
-#services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.75rem;
-  width: 100%;
-}
-
-#services > h2 {
-  grid-column: 1 / -1;
-  width: 100%;
-  margin-bottom: 1.5rem;
-}
-
-#services ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.75rem;
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-  grid-column: 1 / -1;
-  width: 100%;
-}
-
-#services article {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: var(--transition);
-}
-
+/* --- Services Section Cards --- */
 #services article:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
@@ -370,52 +429,8 @@ a.btn:hover, .btn:hover, #home p a:hover, #hero p a:hover {
   margin: 0;
 }
 
-
-#clients, #testimonials {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 1.5rem;
-}
-
-
-#projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.75rem;
-  width: 100%;
-}
-
-#projects > h2 {
-  grid-column: 1 / -1;
-  width: 100%;
-  margin-bottom: 1.5rem;
-}
-
-#projects hr {
-  display: none;
-}
-
-#projects ol {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.75rem;
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-  grid-column: 1 / -1;
-  width: 100%;
-}
-
+/* --- Projects Section Cards --- */
 #projects article {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-  margin-bottom: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: var(--transition);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
@@ -447,36 +462,8 @@ a.btn:hover, .btn:hover, #home p a:hover, #hero p a:hover {
   display: none;
 }
 
-
-#blog, #blogs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.75rem;
-  list-style: none;
-  margin-left: 0;
-  padding-left: 0;
-  width: 100%;
-}
-
-#blog > h2, #blogs > h2 {
-  grid-column: 1 / -1;
-  width: 100%;
-  margin-bottom: 1.5rem;
-}
-
-#blog hr, #blogs hr {
-  display: none;
-}
-
+/* --- Blog Section Cards --- */
 #blog article, #blogs article {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-  margin-bottom: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
   transition: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
@@ -509,63 +496,11 @@ a.btn:hover, .btn:hover, #home p a:hover, #hero p a:hover {
   display: none;
 }
 
-article {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  transition: var(--transition);
-}
-
-article h3 {
-  color: var(--text-main);
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
-}
-
-article p {
-  font-size: 0.95rem;
-  flex: 1;
-}
-
-
-#pricing {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
-  width: 100%;
-}
-
-@media (max-width: 992px) {
-  #pricing {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
-}
-
-#pricing > h2 {
-  grid-column: 1 / -1;
-  width: 100%;
-  margin-bottom: 1.5rem;
-}
-
-#pricing hr {
-  display: none;
-}
-
+/* --- Pricing Section Cards --- */
 #pricing article {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-  display: flex;
-  flex-direction: column;
   height: auto;
   min-height: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-  transition: var(--transition);
 }
 
 #pricing article:hover {
@@ -600,34 +535,12 @@ article p {
   margin-top: 1rem;
 }
 
-
-#case-studies {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.75rem;
-}
-
-#case-studies article {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.75rem;
-}
-
-#case-studies article:hover {
+/* --- Case Studies & Offices --- */
+#case-studies article:hover,
+#leadership-teams article:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
   border-color: #cbd5e1;
-}
-
-#offices {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.75rem;
-}
-
-#offices hr, section hr, #projects hr, #case-studies hr, #pricing hr {
-  display: none;
 }
 
 #offices section {
@@ -647,24 +560,7 @@ article p {
   border: 1px solid var(--border-color);
 }
 
-
-#leadership-teams {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.75rem;
-}
-
-#leadership-teams > h2 {
-  grid-column: 1 / -1;
-  width: 100%;
-  margin-bottom: 1.5rem;
-}
-
-#leadership-teams article:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-
+/* --- Client Logo Pills --- */
 #client-logos, section#client-logos {
   display: flex;
   flex-direction: row;
@@ -673,12 +569,6 @@ article p {
   justify-content: flex-start;
   gap: 1.25rem;
   width: 100%;
-}
-
-#client-logos > h2 {
-  grid-column: 1 / -1;
-  width: 100%;
-  margin-bottom: 1.5rem;
 }
 
 #client-logos figure {
@@ -727,16 +617,7 @@ article p {
   margin-top: 0;
 }
 
-
-#statics ul, #statistics ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  list-style: none;
-  margin-left: 0;
-  text-align: center;
-}
-
+/* --- Statistics Section --- */
 #statics li, #statistics li {
   background: #eff6ff;
   border: 1px solid #dbeafe;
@@ -757,7 +638,6 @@ article p {
   font-weight: 800;
 }
 
-
 #development-process figure img, section > figure img {
   width: 100%;
   max-width: 300px;
@@ -765,17 +645,7 @@ article p {
   object-fit: contain;
 }
 
-
-#clients, #testimonials {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 1.5rem;
-}
-
-#testimonials hr, #clients hr {
-  display: none;
-}
-
+/* --- Testimonial Cards --- */
 .testimonial-card {
   background: #ffffff;
   border: 1px solid var(--border-color);
@@ -807,6 +677,7 @@ article p {
   width: 100%;
 }
 
+/* --- Tables & Forms --- */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -834,23 +705,10 @@ th {
   border-bottom: 2px solid #cbd5e1;
 }
 
-tr:nth-child(odd) td {
-  background-color: #ffffff;
-}
-
-tr:nth-child(even) td {
-  background-color: #f1f5f9;
-}
-
-tr:hover td {
-  background-color: #dbeafe;
-  transition: var(--transition);
-}
-
-td {
-  color: var(--text-main);
-  font-size: 0.95rem;
-}
+tr:nth-child(odd) td { background-color: #ffffff; }
+tr:nth-child(even) td { background-color: #f1f5f9; }
+tr:hover td { background-color: #dbeafe; transition: var(--transition); }
+td { color: var(--text-main); font-size: 0.95rem; }
 
 .table-responsive {
   width: 100%;
@@ -876,9 +734,7 @@ td {
   text-align: left;
 }
 
-form br {
-  display: none;
-}
+form br { display: none; }
 
 form {
   max-width: 650px;
@@ -954,8 +810,7 @@ textarea {
   min-height: 130px;
 }
 
-input[type="submit"],
-button[type="submit"] {
+input[type="submit"], button[type="submit"] {
   background: #2563eb;
   color: #ffffff;
   font-weight: 700;
@@ -971,15 +826,13 @@ button[type="submit"] {
   width: auto;
 }
 
-input[type="submit"]:hover,
-button[type="submit"]:hover {
+input[type="submit"]:hover, button[type="submit"]:hover {
   background: #1d4ed8;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
-input[type="reset"],
-button[type="reset"] {
+input[type="reset"], button[type="reset"] {
   background: #ffffff;
   color: #334155;
   font-weight: 600;
@@ -1026,7 +879,7 @@ details p {
   color: var(--text-muted);
 }
 
-
+/* --- Footer (Mobile) --- */
 footer {
   background: var(--bg-dark);
   color: #94a3b8;
@@ -1038,13 +891,9 @@ footer {
   gap: 0.75rem;
 }
 
-footer hr {
-  display: none;
-}
-
 footer .footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
   max-width: 1200px;
   width: 100%;
@@ -1102,35 +951,11 @@ footer nav a:hover {
   color: #ffffff;
 }
 
-.social-link.linkedin:hover {
-  background: #0a66c2;
-  border-color: #0a66c2;
-  box-shadow: 0 4px 10px rgba(10, 102, 194, 0.4);
-}
-
-.social-link.github:hover {
-  background: #24292f;
-  border-color: #444444;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-.social-link.facebook:hover {
-  background: #1877f2;
-  border-color: #1877f2;
-  box-shadow: 0 4px 10px rgba(24, 119, 242, 0.4);
-}
-
-.social-link.instagram:hover {
-  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-  border-color: #e4405f;
-  box-shadow: 0 4px 10px rgba(228, 64, 95, 0.4);
-}
-
-.social-link.youtube:hover {
-  background: #ff0000;
-  border-color: #ff0000;
-  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4);
-}
+.social-link.linkedin:hover { background: #0a66c2; border-color: #0a66c2; box-shadow: 0 4px 10px rgba(10, 102, 194, 0.4); }
+.social-link.github:hover { background: #24292f; border-color: #444444; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); }
+.social-link.facebook:hover { background: #1877f2; border-color: #1877f2; box-shadow: 0 4px 10px rgba(24, 119, 242, 0.4); }
+.social-link.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-color: #e4405f; box-shadow: 0 4px 10px rgba(228, 64, 95, 0.4); }
+.social-link.youtube:hover { background: #ff0000; border-color: #ff0000; box-shadow: 0 4px 10px rgba(255, 0, 0, 0.4); }
 
 .social-link svg {
   width: 14px;
@@ -1149,68 +974,119 @@ footer p:last-child {
   max-width: 1200px;
 }
 
-.nav-toggle {
-  display: none;
-}
 
-.nav-toggle-label {
-  display: none;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  font-size: 1.5rem;
-  width: 42px;
-  height: 42px;
-  border-radius: 6px;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-}
+/* ==========================================================================
+   2. TABLET BREAKPOINT (PROGRESSIVE ENHANCEMENT: MIN-WIDTH: 640px)
+   Expand Layouts into 2-Column Grids
+   ========================================================================== */
+@media (min-width: 640px) {
 
-.nav-toggle-label:hover {
-  background: rgba(255, 255, 255, 0.25);
-}
-
-@media (max-width: 768px) {
   main {
-    padding: 1.75rem 1.25rem;
-    width: 95%;
-    margin: 1rem auto;
+    width: 92%;
+    padding: 2rem 0;
   }
 
+  .about-grid,
+  #services,
+  #services ul,
+  #projects,
+  #projects ol,
+  #blog,
+  #blogs,
+  #pricing,
+  #case-studies,
+  #offices,
+  #leadership-teams,
+  #testimonials,
+  #clients {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+
+  #statics ul, #statistics ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  footer .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+
+/* ==========================================================================
+   3. DESKTOP BREAKPOINT (PROGRESSIVE ENHANCEMENT: MIN-WIDTH: 1024px)
+   Expand Layouts into 3 & 4-Column Grids, Restore Desktop Navigation
+   ========================================================================== */
+@media (min-width: 1024px) {
+
+  /* Desktop Header & Nav */
   header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0.85rem 1.25rem;
-  }
-
-  .nav-toggle-label {
-    display: flex;
-  }
-
-  header nav {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    background: #0f172a;
-    padding: 0.75rem;
-    margin-top: 0.75rem;
-    border-radius: 12px;
-  }
-
-  .nav-toggle:checked ~ nav {
-    display: flex;
-  }
-
-  header nav a {
-    padding: 0.75rem 1rem;
-    width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.85rem 5%;
   }
 
   .header-brand h1 {
+    font-size: 1.35rem;
+  }
+
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header nav {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    background: transparent;
+    padding: 0;
+    margin-top: 0;
+    gap: 0.35rem;
+  }
+
+  header nav a {
+    width: auto;
+    border-bottom: none;
+    padding: 0.5rem 0.85rem;
+  }
+
+  /* Desktop Hero */
+  #home h2, #hero h2, #error-page h2 {
+    font-size: 2.75rem;
+  }
+
+  #home p, #hero p, #error-page p {
     font-size: 1.15rem;
+  }
+
+  /* Desktop Container */
+  main {
+    max-width: 1240px;
+  }
+
+  /* Desktop 3-Column Grids */
+  #services,
+  #services ul,
+  #projects,
+  #projects ol,
+  #blog,
+  #blogs,
+  #pricing,
+  #case-studies,
+  #offices,
+  #leadership-teams {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  #statics ul, #statistics ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Desktop 4-Column Footer */
+  footer .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
