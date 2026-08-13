@@ -62,10 +62,11 @@ p, li {
   margin-bottom: 1rem;
 }
 
-u {
+/* Prevents duplicate double lines inside headings */
+u, h2 u, h3 u {
   text-decoration: none;
-  border-bottom: 3px solid var(--primary);
-  padding-bottom: 2px;
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 a {
@@ -96,20 +97,18 @@ ul, ol {
   margin-bottom: 1.5rem;
 }
 
+/* Single clean blue underline for all section titles across all pages */
 section > h2 {
   display: block;
   grid-column: 1 / -1;
-  width: 100%;
+  width: fit-content;
+  max-width: 100%;
   color: var(--text-main);
   margin-bottom: 1.5rem;
+  border-bottom: 3px solid var(--primary);
+  padding-bottom: 4px;
 }
 
-/* FIX: nested lists (the <ul> inside #services, the <ol> inside #projects)
-   must span the FULL width of their parent grid section, otherwise they
-   only occupy ONE column of the parent grid and get squeezed into a
-   fraction of the row, leaving the rest of the row blank. This rule
-   works at every breakpoint automatically -- on mobile the parent is a
-   flex column (not a grid), so grid-column is simply ignored there. */
 #services ul,
 #projects ol {
   grid-column: 1 / -1;
@@ -123,7 +122,6 @@ section > h2 {
 
 /* ==========================================================================
    1. MOBILE-FIRST BASE STYLES (SMALL SCREENS / MOBILE < 640px)
-   Default 1-Column Stacked Layout
    ========================================================================== */
 
 /* --- Header & Mobile Checkbox Navigation --- */
@@ -227,7 +225,7 @@ header nav a.active {
   font-weight: 600;
 }
 
-/* --- Main Page Container (Mobile) --- */
+/* --- Main Page Container --- */
 main {
   flex: 1;
   width: 95%;
@@ -265,6 +263,7 @@ main > section, section {
   color: var(--text-white);
   font-size: 2.25rem;
   margin-bottom: 1.25rem;
+  border-bottom: none;
 }
 
 #home p, #hero p, #error-page p {
@@ -560,14 +559,7 @@ article p {
   border: 1px solid var(--border-color);
 }
 
-/* --- Client Logo Pills --- */
-/* FIX: use CSS Grid instead of Flexbox for the client logo wall.
-   Flexbox with flex-wrap stretches items PER ROW to fill leftover
-   space -- so a short last row (like 3 leftover logos) gets much
-   wider boxes than a full row of 7. Grid fixes the column width
-   ONCE for the whole section and applies it to every row equally,
-   so the last (incomplete) row just leaves blank cells instead of
-   stretching its items. */
+/* --- Client Logo Wall --- */
 #client-logos, section#client-logos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
