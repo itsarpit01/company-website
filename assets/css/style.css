@@ -35,12 +35,6 @@
 
 /* ==========================================================================
    DARK THEME OVERRIDES — CSS-ONLY, AUTO-DETECTED FROM OS SETTING
-   No JavaScript. The browser reads the user's OS-level light/dark
-   preference and applies this block automatically when it's "dark".
-   Every variable name below is IDENTICAL to the :root block above --
-   only the VALUES change. Because the rest of this file is written
-   entirely in var(--name) references, nothing else needs to be
-   touched: the whole site re-themes itself automatically.
    ========================================================================== */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -67,30 +61,7 @@
 }
 
 /* ==========================================================================
-   MANUAL OVERRIDE — CSS + HTML ONLY, no JavaScript.
-
-   This reuses the same "checkbox hack" your mobile hamburger menu already
-   uses: a hidden checkbox + a clickable <label for="..."> pointing at it.
-
-   :has() is a CSS selector that means "this element CONTAINS a match for
-   the selector inside the parentheses."
-
-   IMPORTANT: a checkbox has 2 states (checked / unchecked), so we write
-   TWO explicit rules -- one per state -- not just one. If you only
-   override the "checked" state, the "unchecked" state silently falls
-   back to prefers-color-scheme, which is DARK on a system that already
-   has Dark Mode on. That makes the toggle look "stuck" on dark, because
-   unchecking never explicitly asked for light.
-
-   With both states written out below, the checkbox becomes a genuine
-   independent switch -- it now IGNORES the OS setting entirely once
-   the page has loaded, and always reflects exactly what's checked.
-
-   IMPORTANT LIMITATION: unlike the JS+localStorage version, a plain
-   checkbox has no memory. Every time the user loads a NEW page (or
-   reloads this one), the checkbox resets to unchecked and the theme
-   goes back to light. True cross-page persistence without JS isn't
-   possible in plain HTML/CSS.
+   MANUAL OVERRIDE — CSS + HTML ONLY
    ========================================================================== */
 body:has(#theme-toggle:checked) {
   --primary: #3b82f6;
@@ -114,8 +85,6 @@ body:has(#theme-toggle:checked) {
   --table-hover: #1e3a5f;
 }
 
-/* THE FIX: explicitly force LIGHT when the checkbox is NOT checked,
-   instead of silently falling through to prefers-color-scheme. */
 body:has(#theme-toggle:not(:checked)) {
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
@@ -138,39 +107,37 @@ body:has(#theme-toggle:not(:checked)) {
   --table-hover: #dbeafe;
 }
 
-/* Hide the real checkbox -- only its checked/unchecked STATE matters,
-   the box itself should never be visible. */
+/* Hide the real checkbox */
 .theme-checkbox {
-  display: none;
+  display: none !important;
 }
 
-/* The visible clickable icon (styled exactly like .nav-toggle-label) */
+/* The visible clickable theme toggle button */
 .theme-toggle-label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
+  border-radius: 50%;
   color: #ffffff;
   font-size: 1.2rem;
   cursor: pointer;
   transition: var(--transition);
+  margin-left: 0.5rem;
+  flex-shrink: 0;
 }
 
 .theme-toggle-label:hover {
   background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.08);
 }
 
-/* Both icons live in the DOM at once; CSS just shows/hides them.
-   fill: currentColor / stroke: currentColor (set in the SVG markup)
-   means each icon automatically matches .theme-toggle-label's color
-   -- same technique as your .social-link svg icons. */
 .theme-toggle-label svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
 .icon-sun {
@@ -181,14 +148,12 @@ body:has(#theme-toggle:not(:checked)) {
   display: block;
 }
 
-/* Swap which icon is visible based on checkbox state -- same `~`
-   sibling-combinator technique as before, just targeting the SVGs
-   directly instead of a ::before content string. */
-#theme-toggle:checked ~ .theme-toggle-label .icon-moon {
+/* Swap SVG icons based on checkbox state */
+body:has(#theme-toggle:checked) .icon-moon {
   display: none;
 }
 
-#theme-toggle:checked ~ .theme-toggle-label .icon-sun {
+body:has(#theme-toggle:checked) .icon-sun {
   display: block;
 }
 
@@ -232,7 +197,6 @@ p, li {
   margin-bottom: 1rem;
 }
 
-/* Prevents duplicate double lines inside headings */
 u, h2 u, h3 u {
   text-decoration: none;
   border-bottom: none;
@@ -267,7 +231,6 @@ ul, ol {
   margin-bottom: 1.5rem;
 }
 
-/* Single clean blue underline for all section titles across all pages */
 section > h2 {
   display: block;
   grid-column: 1 / -1;
@@ -294,7 +257,7 @@ section > h2 {
    1. MOBILE-FIRST BASE STYLES (SMALL SCREENS / MOBILE < 640px)
    ========================================================================== */
 
-/* --- Header & Mobile Checkbox Navigation --- */
+/* --- Header & Navigation --- */
 header {
   position: sticky;
   top: 0;
@@ -367,6 +330,8 @@ header nav {
   padding: 0.75rem;
   margin-top: 0.75rem;
   border-radius: 12px;
+  align-items: flex-start;
+  gap: 0.5rem;
 }
 
 .nav-toggle:checked ~ nav {
@@ -1042,7 +1007,7 @@ details p {
   color: var(--text-muted);
 }
 
-/* --- Footer (Mobile) --- */
+/* --- Footer --- */
 footer {
   background: var(--bg-dark);
   color: #94a3b8;
@@ -1140,7 +1105,6 @@ footer p:last-child {
 
 /* ==========================================================================
    2. TABLET BREAKPOINT (PROGRESSIVE ENHANCEMENT: MIN-WIDTH: 640px)
-   Expand Layouts into 2-Column Grids
    ========================================================================== */
 @media (min-width: 640px) {
 
@@ -1183,7 +1147,6 @@ footer p:last-child {
 
 /* ==========================================================================
    3. DESKTOP BREAKPOINT (PROGRESSIVE ENHANCEMENT: MIN-WIDTH: 1024px)
-   Expand Layouts into 3 & 4-Column Grids, Restore Desktop Navigation
    ========================================================================== */
 @media (min-width: 1024px) {
 
@@ -1203,6 +1166,7 @@ footer p:last-child {
   header nav {
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: auto;
     background: transparent;
     padding: 0;
