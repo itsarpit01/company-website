@@ -2,6 +2,8 @@
    DESIGN SYSTEM TOKENS & RESET
    ========================================================================== */
 :root {
+  color-scheme: light dark;
+
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
   --primary-light: #eff6ff;
@@ -14,6 +16,14 @@
   --text-white: #ffffff;
   --border-color: #e2e8f0;
 
+  --input-bg: #fdfbf7;
+  --stat-bg: #eff6ff;
+  --stat-border: #dbeafe;
+  --testimonial-bg: #f8fafc;
+  --table-stripe: #f1f5f9;
+  --table-border: #cbd5e1;
+  --table-hover: #dbeafe;
+
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
@@ -22,6 +32,166 @@
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
   --transition: all 0.3s ease;
 }
+
+/* ==========================================================================
+   DARK THEME OVERRIDES — CSS-ONLY, AUTO-DETECTED FROM OS SETTING
+   No JavaScript. The browser reads the user's OS-level light/dark
+   preference and applies this block automatically when it's "dark".
+   Every variable name below is IDENTICAL to the :root block above --
+   only the VALUES change. Because the rest of this file is written
+   entirely in var(--name) references, nothing else needs to be
+   touched: the whole site re-themes itself automatically.
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #3b82f6;
+    --primary-hover: #60a5fa;
+    --primary-light: #1e3a5f;
+    --bg-main: #0f172a;
+    --bg-surface: #1e293b;
+    --bg-card: #1e293b;
+    --bg-dark: #020617;
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --text-white: #ffffff;
+    --border-color: #334155;
+
+    --input-bg: #0b1220;
+    --stat-bg: #16213a;
+    --stat-border: #2c3e5c;
+    --testimonial-bg: #16213a;
+    --table-stripe: #16213a;
+    --table-border: #334155;
+    --table-hover: #1e3a5f;
+  }
+}
+
+/* ==========================================================================
+   MANUAL OVERRIDE — CSS + HTML ONLY, no JavaScript.
+
+   This reuses the same "checkbox hack" your mobile hamburger menu already
+   uses: a hidden checkbox + a clickable <label for="..."> pointing at it.
+
+   :has() is a CSS selector that means "this element CONTAINS a match for
+   the selector inside the parentheses."
+
+   IMPORTANT: a checkbox has 2 states (checked / unchecked), so we write
+   TWO explicit rules -- one per state -- not just one. If you only
+   override the "checked" state, the "unchecked" state silently falls
+   back to prefers-color-scheme, which is DARK on a system that already
+   has Dark Mode on. That makes the toggle look "stuck" on dark, because
+   unchecking never explicitly asked for light.
+
+   With both states written out below, the checkbox becomes a genuine
+   independent switch -- it now IGNORES the OS setting entirely once
+   the page has loaded, and always reflects exactly what's checked.
+
+   IMPORTANT LIMITATION: unlike the JS+localStorage version, a plain
+   checkbox has no memory. Every time the user loads a NEW page (or
+   reloads this one), the checkbox resets to unchecked and the theme
+   goes back to light. True cross-page persistence without JS isn't
+   possible in plain HTML/CSS.
+   ========================================================================== */
+body:has(#theme-toggle:checked) {
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --primary-light: #1e3a5f;
+  --bg-main: #0f172a;
+  --bg-surface: #1e293b;
+  --bg-card: #1e293b;
+  --bg-dark: #020617;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-white: #ffffff;
+  --border-color: #334155;
+
+  --input-bg: #0b1220;
+  --stat-bg: #16213a;
+  --stat-border: #2c3e5c;
+  --testimonial-bg: #16213a;
+  --table-stripe: #16213a;
+  --table-border: #334155;
+  --table-hover: #1e3a5f;
+}
+
+/* THE FIX: explicitly force LIGHT when the checkbox is NOT checked,
+   instead of silently falling through to prefers-color-scheme. */
+body:has(#theme-toggle:not(:checked)) {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --bg-main: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-dark: #0f172a;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-white: #ffffff;
+  --border-color: #e2e8f0;
+
+  --input-bg: #fdfbf7;
+  --stat-bg: #eff6ff;
+  --stat-border: #dbeafe;
+  --testimonial-bg: #f8fafc;
+  --table-stripe: #f1f5f9;
+  --table-border: #cbd5e1;
+  --table-hover: #dbeafe;
+}
+
+/* Hide the real checkbox -- only its checked/unchecked STATE matters,
+   the box itself should never be visible. */
+.theme-checkbox {
+  display: none;
+}
+
+/* The visible clickable icon (styled exactly like .nav-toggle-label) */
+.theme-toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.theme-toggle-label:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Both icons live in the DOM at once; CSS just shows/hides them.
+   fill: currentColor / stroke: currentColor (set in the SVG markup)
+   means each icon automatically matches .theme-toggle-label's color
+   -- same technique as your .social-link svg icons. */
+.theme-toggle-label svg {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-sun {
+  display: none;
+}
+
+.icon-moon {
+  display: block;
+}
+
+/* Swap which icon is visible based on checkbox state -- same `~`
+   sibling-combinator technique as before, just targeting the SVGs
+   directly instead of a ::before content string. */
+#theme-toggle:checked ~ .theme-toggle-label .icon-moon {
+  display: none;
+}
+
+#theme-toggle:checked ~ .theme-toggle-label .icon-sun {
+  display: block;
+}
+
 
 * {
   box-sizing: border-box;
@@ -612,8 +782,8 @@ article p {
 
 /* --- Statistics Section --- */
 #statics li, #statistics li {
-  background: #eff6ff;
-  border: 1px solid #dbeafe;
+  background: var(--stat-bg);
+  border: 1px solid var(--stat-border);
   padding: 1.75rem;
   border-radius: var(--radius-md);
   transition: var(--transition);
@@ -640,7 +810,7 @@ article p {
 
 /* --- Testimonial Cards --- */
 .testimonial-card {
-  background: #ffffff;
+  background: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 1.5rem;
@@ -650,8 +820,8 @@ article p {
 .testimonial-card p, #clients > p, #testimonials blockquote, blockquote {
   font-style: italic;
   font-size: 1.05rem;
-  color: #334155;
-  background: #f8fafc;
+  color: var(--text-main);
+  background: var(--testimonial-bg);
   padding: 1.25rem 1.5rem;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
@@ -662,7 +832,7 @@ article p {
 .testimonial-card i, #clients i, #testimonials cite, cite {
   display: block;
   font-weight: 700;
-  color: #2563eb;
+  color: var(--primary);
   font-style: normal;
   margin-top: 0.5rem;
   margin-bottom: 0;
@@ -675,32 +845,32 @@ table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
-  border: 1.5px solid #cbd5e1;
+  border: 1.5px solid var(--table-border);
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: #ffffff;
+  background: var(--bg-surface);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 th, td {
   padding: 1rem 1.25rem;
   text-align: left;
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--table-border);
 }
 
 th {
-  background: #0f172a;
+  background: var(--bg-dark);
   color: #ffffff;
   font-weight: 700;
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-bottom: 2px solid #cbd5e1;
+  border-bottom: 2px solid var(--table-border);
 }
 
-tr:nth-child(odd) td { background-color: #ffffff; }
-tr:nth-child(even) td { background-color: #f1f5f9; }
-tr:hover td { background-color: #dbeafe; transition: var(--transition); }
+tr:nth-child(odd) td { background-color: var(--bg-surface); }
+tr:nth-child(even) td { background-color: var(--table-stripe); }
+tr:hover td { background-color: var(--table-hover); transition: var(--transition); }
 td { color: var(--text-main); font-size: 0.95rem; }
 
 .table-responsive {
@@ -737,7 +907,7 @@ form {
   flex-wrap: wrap;
   align-items: center;
   width: 100%;
-  background: #ffffff;
+  background: var(--bg-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 2rem;
@@ -778,11 +948,11 @@ textarea {
   font-family: inherit;
   width: 100%;
   padding: 0.85rem 1.15rem;
-  border: 1.5px solid #e2e8f0;
+  border: 1.5px solid var(--border-color);
   border-radius: var(--radius-sm);
   font-size: 0.95rem;
   color: var(--text-main);
-  background-color: #fdfbf7;
+  background-color: var(--input-bg);
   margin-bottom: 0.75rem;
   transition: var(--transition);
 }
@@ -793,8 +963,8 @@ input[type="tel"]:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #2563eb;
-  background-color: #ffffff;
+  border-color: var(--primary);
+  background-color: var(--bg-surface);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
@@ -804,7 +974,7 @@ textarea {
 }
 
 input[type="submit"], button[type="submit"] {
-  background: #2563eb;
+  background: var(--primary);
   color: #ffffff;
   font-weight: 700;
   font-size: 0.95rem;
@@ -820,18 +990,18 @@ input[type="submit"], button[type="submit"] {
 }
 
 input[type="submit"]:hover, button[type="submit"]:hover {
-  background: #1d4ed8;
+  background: var(--primary-hover);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 input[type="reset"], button[type="reset"] {
-  background: #ffffff;
-  color: #334155;
+  background: var(--bg-surface);
+  color: var(--text-main);
   font-weight: 600;
   font-size: 0.95rem;
   padding: 0.85rem 1.75rem;
-  border: 1.5px solid #e2e8f0;
+  border: 1.5px solid var(--border-color);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: var(--transition);
@@ -841,8 +1011,8 @@ input[type="reset"], button[type="reset"] {
 }
 
 input[type="reset"]:hover {
-  background: #f8fafc;
-  border-color: #cbd5e1;
+  background: var(--bg-main);
+  border-color: var(--table-border);
 }
 
 details {
