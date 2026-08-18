@@ -1,6 +1,4 @@
-/* ==========================================================================
-   DESIGN SYSTEM TOKENS & RESET
-   ========================================================================== */
+
 :root {
   color-scheme: light dark;
 
@@ -33,9 +31,6 @@
   --transition: all 0.3s ease;
 }
 
-/* ==========================================================================
-   DARK THEME OVERRIDES — CSS-ONLY, AUTO-DETECTED FROM OS SETTING
-   ========================================================================== */
 @media (prefers-color-scheme: dark) {
   :root {
     --primary: #3b82f6;
@@ -60,9 +55,6 @@
   }
 }
 
-/* ==========================================================================
-   MANUAL OVERRIDE — CSS + HTML ONLY
-   ========================================================================== */
 body:has(#theme-toggle:checked) {
   --primary: #3b82f6;
   --primary-hover: #60a5fa;
@@ -107,12 +99,10 @@ body:has(#theme-toggle:not(:checked)) {
   --table-hover: #dbeafe;
 }
 
-/* Hide the real checkbox */
 .theme-checkbox {
   display: none !important;
 }
 
-/* The visible clickable theme toggle button */
 .theme-toggle-label {
   display: inline-flex;
   align-items: center;
@@ -148,7 +138,6 @@ body:has(#theme-toggle:not(:checked)) {
   display: block;
 }
 
-/* Swap SVG icons based on checkbox state */
 body:has(#theme-toggle:checked) .icon-moon {
   display: none;
 }
@@ -179,9 +168,6 @@ body {
   flex-direction: column;
 }
 
-/* ==========================================================================
-   TYPOGRAPHY & BASIC ELEMENTS
-   ========================================================================== */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-main);
   font-weight: 700;
@@ -253,11 +239,7 @@ section > h2 {
 }
 
 
-/* ==========================================================================
-   1. MOBILE-FIRST BASE STYLES (SMALL SCREENS / MOBILE < 640px)
-   ========================================================================== */
 
-/* --- Header & Navigation --- */
 header {
   position: sticky;
   top: 0;
@@ -360,7 +342,6 @@ header nav a.active {
   font-weight: 600;
 }
 
-/* --- Main Page Container --- */
 main {
   flex: 1;
   width: 95%;
@@ -429,7 +410,7 @@ a.btn:hover, .btn:hover, #home p a:hover, #hero p a:hover {
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
 }
 
-/* --- Common Card Base Styling --- */
+
 article {
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
@@ -452,7 +433,7 @@ article p {
   flex: 1;
 }
 
-/* --- Sections Default to 1-Column Stack on Mobile --- */
+
 .about-grid,
 #services,
 #services ul,
@@ -477,7 +458,7 @@ article p {
   padding-left: 0;
 }
 
-/* --- About Grid Custom Cards --- */
+
 .about-grid section {
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
@@ -531,7 +512,7 @@ article p {
   margin-top: 0.75rem;
 }
 
-/* --- Services Section Cards --- */
+
 #services article:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
@@ -563,7 +544,7 @@ article p {
   margin: 0;
 }
 
-/* --- Projects Section Cards --- */
+
 #projects article {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
@@ -596,7 +577,6 @@ article p {
   display: none;
 }
 
-/* --- Blog Section Cards --- */
 #blog article, #blogs article {
   transition: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
@@ -630,7 +610,6 @@ article p {
   display: none;
 }
 
-/* --- Pricing Section Cards --- */
 #pricing article {
   height: auto;
   min-height: 100%;
@@ -669,7 +648,6 @@ article p {
   margin-top: 1rem;
 }
 
-/* --- Case Studies & Offices --- */
 #case-studies article:hover,
 #leadership-teams article:hover {
   transform: translateY(-5px);
@@ -694,7 +672,6 @@ article p {
   border: 1px solid var(--border-color);
 }
 
-/* --- Client Logo Wall --- */
 #client-logos, section#client-logos {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -745,7 +722,7 @@ article p {
   margin-top: 0;
 }
 
-/* --- Statistics Section --- */
+
 #statics li, #statistics li {
   background: var(--stat-bg);
   border: 1px solid var(--stat-border);
@@ -773,7 +750,7 @@ article p {
   object-fit: contain;
 }
 
-/* --- Testimonial Cards --- */
+
 .testimonial-card {
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
@@ -805,7 +782,6 @@ article p {
   width: 100%;
 }
 
-/* --- Tables & Forms --- */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -1007,7 +983,7 @@ details p {
   color: var(--text-muted);
 }
 
-/* --- Footer --- */
+
 footer {
   background: var(--bg-dark);
   color: #94a3b8;
@@ -1102,10 +1078,6 @@ footer p:last-child {
   max-width: 1200px;
 }
 
-
-/* ==========================================================================
-   2. TABLET BREAKPOINT (PROGRESSIVE ENHANCEMENT: MIN-WIDTH: 640px)
-   ========================================================================== */
 @media (min-width: 640px) {
 
   main {
@@ -1144,13 +1116,8 @@ footer p:last-child {
   }
 }
 
-
-/* ==========================================================================
-   3. DESKTOP BREAKPOINT (PROGRESSIVE ENHANCEMENT: MIN-WIDTH: 1024px)
-   ========================================================================== */
 @media (min-width: 1024px) {
 
-  /* Desktop Header & Nav */
   header {
     padding: 0.85rem 5%;
   }
@@ -1179,8 +1146,6 @@ footer p:last-child {
     border-bottom: none;
     padding: 0.5rem 0.85rem;
   }
-
-  /* Desktop Hero */
   #home h2, #hero h2, #error-page h2 {
     font-size: 2.75rem;
   }
@@ -1189,12 +1154,11 @@ footer p:last-child {
     font-size: 1.15rem;
   }
 
-  /* Desktop Container */
   main {
     max-width: 1240px;
   }
 
-  /* Desktop 3-Column Grids */
+ 
   #services,
   #services ul,
   #projects,
@@ -1212,7 +1176,7 @@ footer p:last-child {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  /* Desktop 4-Column Footer */
+
   footer .footer-grid {
     grid-template-columns: repeat(4, 1fr);
   }
